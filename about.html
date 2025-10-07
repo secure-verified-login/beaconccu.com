@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beacon CCU — About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b3d91;
+      --accent: #d4af37;
+      --bg: #f5f7fa;
+      --text-dark: #1a1a1a;
+      --text-muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
+
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
+    header .logo-area img { height: 45px; border-radius: 50%; }
+    header .logo-text { font-weight: 700; font-size: 1.3rem; }
+    nav a { text-decoration: none; color: #fff; font-weight: 600; margin-left: 1.2rem; transition: 0.3s; }
+    nav a:hover { color: var(--accent); }
+
+    main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+
+    h1, h2 { font-weight: 700; margin-bottom: 1rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; color: var(--primary); }
+
+    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem; margin-bottom: 2rem; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .team-member { text-align: center; }
+    .team-member img { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 0.5rem; }
+    .team-member h4 { margin-bottom: 0.25rem; font-size: 1rem; color: var(--text-dark); }
+    .team-member p { font-size: 0.9rem; color: var(--text-muted); }
+
+    footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; position: relative; z-index: 2; }
+
+    a { color: var(--accent); text-decoration: none; }
+    .partners-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+}
+.partners-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.partners-carousel::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+.partner-slide {
+  flex: 0 0 220px;
+  background: #eef3ff;
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.partner-slide img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+.partner-slide h4 {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+.partner-slide p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-area">
+    <img src="assets/images/beacon-logo.jpg" alt="Beacon CCU Logo">
+    <div class="logo-text">Beacon CCU</div>
+  </div>
+  <nav>
+    <a href="index.html">Accounts</a>
+    <a href="transfer.html">Transfers</a>
+    <a href="bill-pay.html">Bill Pay</a>
+    <a href="statements.html">Statements</a>
+    <a href="settings.html">Settings</a>
+    <a href="index.html">Logout</a>
+  </nav>
+</header>
+
+<main>
+  <h1>About Beacon Credit Union</h1>
+  
+  <div class="card">
+    <h2>Our Mission</h2>
+    <p>Beacon Credit Union is committed to providing personalized financial services with integrity, transparency, and trust. Our goal is to empower members with the tools and guidance needed to achieve financial success and security.</p>
+  </div>
+
+  <div class="card">
+    <h2>Our History</h2>
+    <p>Founded in 1985, Beacon CCU has grown from a small local credit union into a trusted financial institution serving thousands of members nationwide. Over the past 40 years, we’ve focused on innovation, member satisfaction, and community support.</p>
+  </div>
+
+  <div class="card">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="assets/images/Alex-Michealson.jpg" alt="CEO">
+        <h4>Alex Michealson</h4>
+        <p>CEO & Founder</p>
+      </div>
+      <div class="team-member">
+        <img src="assets/images/Sarah-Johnson.jpg" alt="CFO">
+        <h4>Sarah Johnson</h4>
+        <p>CFO</p>
+      </div>
+      <div class="team-member">
+        <img src="assets/images/Michael-Lee.jpg" alt="COO">
+        <h4>Michael Lee</h4>
+        <p>COO</p>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Community Involvement</h2>
+    <p>At Beacon CCU, we believe in giving back. From sponsoring local events to offering financial literacy workshops, our team actively contributes to building stronger communities and supporting members beyond banking.</p>
+  </div>
+  <div class="card">
+  <h2>Our Partners</h2>
+  <div class="partners-carousel">
+    <div class="partner-slide">
+      <img src="assets/images/partner1.jpg" alt="Global Bank Corp Logo">
+      <h4>Global Bank Corp</h4>
+      <p>Strategic Banking Partner</p>
+    </div>
+    <div class="partner-slide">
+      <img src="assets/images/partner2.jpg" alt="FinTech Solutions Logo">
+      <h4>FinTech Solutions</h4>
+      <p>Digital Innovation Partner</p>
+    </div>
+    <div class="partner-slide">
+      <img src="assets/images/partner3.jpg" alt="Community Trust Logo">
+      <h4>Community Trust</h4>
+      <p>Local Development Partner</p>
+    </div>
+    <div class="partner-slide">
+      <img src="assets/images/partner4.jpg" alt="Secure Payments Logo">
+      <h4>Secure Payments</h4>
+      <p>Payment Processing Partner</p>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  © 2025 Beacon CCU • Phone: (555) 123-4567 • Email: 
+  <a href="mailto:support@beaconcu.com">support@beaconcu.com</a>
+</footer>
+
+</body>
+</html>

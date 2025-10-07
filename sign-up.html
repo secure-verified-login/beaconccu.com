@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beacon CCU | Sign Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f4f6f8;
+    }
+    .top-bar {
+      background-color: #0b3d91;
+      color: #fff;
+      padding: 8px 20px;
+      font-size: 0.9em;
+    }
+    .top-bar .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .top-bar a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .hero-signup {
+      position: relative;
+      background: url('assets/images/banner.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    .hero-signup::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 50, 0.5);
+      z-index: 1;
+    }
+
+    .signup-wrapper {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .signup-container {
+      flex: 1 1 450px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .signup-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #0b3d91;
+    }
+    .signup-container label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .signup-container input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .terms {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+    }
+    .btn-primary {
+      width: 100%;
+      background: #0b3d91;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #092b6d;
+    }
+
+    /* 🔹 Transparent Info Panel */
+    aside.info {
+      flex: 1 1 350px;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    aside.info h3 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+    aside.info p,
+    aside.info .feature div div {
+      color: #fff;
+    }
+    aside.info .ic {
+      color: #fff;
+    }
+    aside.info .features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    aside.info .feature {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🔹 TOP BAR -->
+<div class="top-bar">
+  <div class="row">
+    <div class="left">
+      Routing Number <strong>231176648</strong> | NMLS# 469346
+    </div>
+    <div class="right">
+      <a href="find-atm.html">Find ATM</a>
+    </div>
+  </div>
+</div>
+
+<!-- 🔹 HEADER -->
+<header class="header">
+  <div class="container nav-container">
+    <div class="logo-area">
+      <img src="assets/images/logo.png" alt="Beacon CCU Logo" class="logo">
+      <h1>Beacon CCU</h1>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="loans.html">Loans</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="btn-login">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- 🔹 SIGNUP HERO -->
+<section class="hero-signup">
+  <div class="signup-wrapper">
+    <div class="signup-container">
+      <h2>Create Your Account</h2>
+      <form action="#" method="post">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="123 Main Street" required>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+        <div class="terms">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the <a href="#" id="openTerms">Terms & Conditions</a></label>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign Up</button>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.95em;">
+          Already have an account? <a href="login.html"><strong>Sign In</strong></a>
+        </p>
+      </form>
+    </div>
+
+    <!-- 🔹 Transparent Info Panel -->
+    <aside class="info">
+      <h3>Bank-level security &amp; modern tools</h3>
+      <p>Sign in or open an account in minutes. We protect your data with industry-standard encryption and monitoring.</p>
+
+      <div class="features">
+        <div class="feature"><div class="ic">✓</div><div><strong>Secure sign-in</strong><div style="font-size:12px;color:var(--muted)">Two-step and session monitoring</div></div></div>
+        <div class="feature"><div class="ic">⚡</div><div><strong>Quick approvals</strong><div style="font-size:12px;color:var(--muted)">Fast online account opening</div></div></div>
+        <div class="feature"><div class="ic">📱</div><div><strong>Mobile banking</strong><div style="font-size:12px;color:var(--muted)">Apps for iOS &amp; Android</div></div></div>
+        <div class="feature"><div class="ic">🤝</div><div><strong>Community focus</strong><div style="font-size:12px;color:var(--muted)">Local support &amp; education</div></div></div>
+      </div>
+
+      <p style="margin-top:14px; font-size:13px;">This demo saves credentials locally only for demonstration. Do not enter real credentials or SSNs when testing publicly.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- 🔹 TERMS MODAL -->
+<div class="modal" id="termsModal">
+  <div class="modal-content">
+    <h3>Terms & Conditions</h3>
+    <p>Welcome to Beacon CCU. By signing up for an account, you agree to abide by the following terms and conditions:</p>
+    <p>1. You certify that the information you provide is accurate and truthful to the best of your knowledge.</p>
+    <p>2. You consent to Beacon CCU using your information for account management and service communication.</p>
+    <p>3. You agree not to use your account for illegal activities, fraud, or money laundering.</p>
+    <p>4. Beacon CCU reserves the right to suspend or terminate your account in case of violation of terms or suspicious activity.</p>
+    <p>5. You acknowledge that your data may be stored securely in compliance with data protection regulations.</p>
+    <p>6. You must keep your login credentials confidential and report any unauthorized access immediately.</p>
+    <p>By continuing, you agree to all terms stated above.</p>
+    <button class="close-modal" id="closeTerms">Close</button>
+  </div>
+</div>
+
+<!-- 🔹 FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Beacon CCU. All rights reserved.</p>
+    <p>Phone: (555) 123-4567 | Email: <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const modal = document.getElementById('termsModal');
+  const openBtn = document.getElementById('openTerms');
+  const closeBtn = document.getElementById('closeTerms');
+
+  openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.style.display = 'flex';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>

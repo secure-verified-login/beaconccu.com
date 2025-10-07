@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beacon CCU | Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* 🔹 TOP BAR STYLES */
+    .top-bar {
+      background-color: #0b3d91; 
+      color: #fff;
+      padding: 8px 20px;
+      font-size: 0.9em;
+    }
+    .top-bar .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .atm-btn {
+      background-color: #fff;
+      color: #d4af37;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.85em;
+      transition: all 0.3s ease;
+    }
+    .atm-btn:hover {
+      background-color: #f9f9f9;
+      color: #b8860b;
+    }
+
+    /* 🔹 HERO STYLES */
+    .hero-login {
+      background: url('assets/images/banner.jpg') center/cover no-repeat;
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .hero-login::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 50, 0.4);
+    }
+
+    /* 🔹 LOGIN CONTAINER */
+    .login-container {
+      position: relative;
+      z-index: 2;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #0b3d91;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+    .login-container a {
+      color: #0b3d91;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+    .btn-primary {
+      background: #d4af37;
+      color: #0b3d91;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      background: #fff;
+      color: #0b3d91;
+      border: 2px solid #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔹 TOP BAR -->
+  <div class="top-bar">
+    <div class="row">
+      <div>Routing Number <strong>231176648</strong> | NMLS# 469346</div>
+      <div><a href="find-atm.html" class="atm-btn">Find ATM</a></div>
+    </div>
+  </div>
+
+  <!-- 🔹 HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <div class="logo-area">
+        <img src="assets/images/logo.png" alt="Beacon CCU Logo" class="logo">
+        <h1>Beacon CCU</h1>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="accounts.html">Accounts</a></li>
+          <li><a href="loans.html">Loans</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html" class="btn-login active">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🔹 HERO WITH LOGIN FORM -->
+  <section class="hero-login">
+    <div class="login-container">
+      <h2>Sign In to Your Account</h2>
+      <form id="loginForm">
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <div style="text-align: right; margin-bottom: 20px;">
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">sign-In</button>
+
+        <p style="margin-top: 20px;">
+          Not a member? <a href="signup.html">Join Now</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 🔹 FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Beacon CCU. All rights reserved.</p>
+      <p>Phone: (555) 123-4567 | Email: <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Login validation and redirect
+    const loginForm = document.getElementById("loginForm");
+    loginForm.addEventListener("submit", function(e) {
+      e.preventDefault(); // prevent actual form submission
+
+      const email = loginForm.email.value.trim();
+      const password = loginForm.password.value.trim();
+
+      if(email === "Fredmorgan8711@gmail.com" && password === "FREDMORGAN8711") {
+        window.location.href = "Dashborad.html"; // redirect to dashboard
+      } else {
+        alert("Invalid email or password. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>

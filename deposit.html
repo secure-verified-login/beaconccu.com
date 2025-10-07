@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beacon CCU — Deposit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b3d91;
+      --accent: #d4af37;
+      --bg: #f5f7fa;
+      --text-dark: #1a1a1a;
+      --text-muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
+
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      flex-wrap: wrap;
+    }
+    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
+    header .logo-area img { height: 45px; border-radius: 50%; }
+    header .logo-text { font-weight: 700; font-size: 1.3rem; }
+    nav a { text-decoration: none; color: #fff; font-weight: 600; margin-left: 1.2rem; transition: 0.3s; }
+    nav a:hover { color: var(--accent); }
+
+    main { max-width: 600px; margin: 0 auto; padding: 2rem 1rem; }
+
+    h2 { font-weight: 700; font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; }
+
+    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem; }
+
+    label { display: block; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; }
+    input, select { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; }
+
+    button {
+      background: var(--accent);
+      border: none;
+      border-radius: 30px;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      width: 100%;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid var(--accent);
+    }
+
+    footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-area">
+    <img src="assets/images/beacon-logo.jpg" alt="Beacon CCU Logo">
+    <div class="logo-text">Beacon CCU</div>
+  </div>
+  <nav>
+    <a href="index.html">Accounts</a>
+    <a href="transfer.html">Transfers</a>
+    <a href="bill-pay.html">Bill Pay</a>
+    <a href="statements.html">Statements</a>
+    <a href="settings.html">Settings</a>
+    <a href="index.html">Logout</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Deposit Funds</h2>
+  <div class="card">
+    <form id="depositForm">
+      <label for="accountType">Select Account</label>
+      <select id="accountType" required>
+        <option value="">-- Choose Account --</option>
+        <option value="checking">Checking</option>
+        <option value="savings">Savings</option>
+      </select>
+
+      <label for="depositAmount">Amount ($)</label>
+      <input type="number" id="depositAmount" placeholder="Enter deposit amount" min="1" step="0.01" required>
+
+      <label for="depositMethod">Deposit Method</label>
+      <select id="depositMethod" required>
+        <option value="">-- Choose Method --</option>
+        <option value="cash">Cash</option>
+        <option value="check">Check</option>
+        <option value="transfer">Transfer</option>
+      </select>
+
+      <button type="submit">Confirm Deposit</button>
+    </form>
+    <p id="confirmation" style="margin-top:1rem; font-weight:600; color:green;"></p>
+  </div>
+</main>
+
+<footer>
+  © 2025 Beacon CCU • Phone: (555) 123-4567 • Email: 
+  <a href="mailto:support@beaconcu.com" style="color:var(--accent); text-decoration:none;">support@beaconcu.com</a>
+</footer>
+
+<script>
+  const depositForm = document.getElementById("depositForm");
+  const confirmation = document.getElementById("confirmation");
+
+  depositForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const account = document.getElementById("accountType").value;
+    const amount = parseFloat(document.getElementById("depositAmount").value).toFixed(2);
+    const method = document.getElementById("depositMethod").value;
+
+    if(account && amount > 0 && method) {
+      confirmation.textContent = `Successfully deposited $${amount} into your ${account} account via ${method}.`;
+      depositForm.reset();
+    }
+  });
+</script>
+</body>
+</html>

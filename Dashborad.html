@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beacon CCU — Member Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b3d91;
+      --accent: #d4af37;
+      --bg: #f5f7fa;
+      --text-dark: #1a1a1a;
+      --text-muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+    }
+
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+    header .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    header .logo-area img {
+      height: 45px;
+      border-radius: 50%;
+    }
+    header .logo-text {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      margin-left: 1.2rem;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Background */
+    .hero-bg {
+      position: relative;
+      background: url('assets/images/dashboard-bg.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      padding-top: 120px;
+      padding-bottom: 60px;
+    }
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #fff; 
+    
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.6rem;
+      background: linear-gradient(90deg, var(--accent), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+    }
+
+    /* Balance Cards */
+    .balance-overview {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .balance-card {
+      flex: 1 1 220px;
+      background: #eef3ff;
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .balance-card h3 {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+    .balance-card span {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Buttons */
+    button {
+      background: var(--accent);
+      border: none;
+      border-radius: 30px;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid var(--accent);
+    }
+
+    .quick-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .quick-actions button {
+      flex: 1 1 150px;
+    }
+
+    /* Transactions */
+    .transactions table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .transactions th, .transactions td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    .transactions th {
+      background: var(--primary);
+      color: #fff;
+    }
+    .transactions td.amount {
+      text-align: right;
+      font-weight: 600;
+    }
+
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media(max-width:768px){
+      .balance-overview { flex-direction: column; }
+      .quick-actions { flex-direction: column; }
+      nav { margin-top: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-area">
+      <img src="assets/images/beacon-logo.jpg" alt="Beacon CCU Logo">
+      <div class="logo-text">Beacon CCU</div>
+    </div>
+    <nav>
+  <a href="index.html">Accounts</a>
+  <a href="statements.html">Statements</a>
+  <a href="settings.html">Settings</a>
+  <a href="index.html">Logout</a>
+</nav>
+
+  </header>
+
+  <!-- Hero background wrapper -->
+  <div class="hero-bg">
+    <main>
+      <h2>Welcome back, <span id="dashboardOwnerName">Frederick Morgan</span></h2>
+
+      <!-- Account Balances -->
+      <div class="balance-overview">
+        <div class="balance-card">
+          <h3>Checking</h3>
+          $<span>1,234,567.89</span>
+        </div>
+        <div class="balance-card">
+          <h3>Savings</h3>
+          $<span>2,345,678.90</span>
+        </div>
+        <div class="balance-card">
+          <h3>Investments</h3>
+          $<span>3,000,000.00</span>
+        </div>
+        <div class="balance-card">
+          <h3>Credit Card</h3>
+          -$<span>120,000.00</span>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="card quick-actions">
+        <button onclick="window.location.href='transfer.html'">Transfer</button>
+        <button onclick="window.location.href='deposit.html'">Deposit</button>
+        <button onclick="window.location.href='bill-pay.html'">Pay Bill</button>
+      </div>
+
+     <!-- Transactions -->
+<div class="card transactions">
+  <h3>Account & Debit Card History (Last 5 Years)</h3>
+  <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 15px;">
+    <div>
+      <label for="year-filter"><strong>Select Year:</strong></label>
+      <select id="year-filter" style="padding: 0.4rem; border-radius: 6px; border: 1px solid #ccc;"></select>
+    </div>
+    <div>
+      <label for="filter-date"><strong>Select Date:</strong></label>
+      <input type="date" id="filter-date" style="padding: 0.4rem; border-radius: 6px; border: 1px solid #ccc;" />
+    </div>
+  </div>
+  <table id="full-transactions-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Account</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th class="amount">Amount ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sample transactions spanning 5 years -->
+      <tr><td>2025-09-27</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+ 5,000.00</td></tr>
+      <tr><td>2025-09-26</td><td>Credit Card</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;">- 320.45</td></tr>
+      <tr><td>2025-08-15</td><td>Savings</td><td>Transfer</td><td>Investment Fund</td><td class="amount" style="color:red;">- 2,000.00</td></tr>
+      <tr><td>2024-12-22</td><td>Checking</td><td>Deposit</td><td>Year-End Bonus</td><td class="amount" style="color:green;">+ 10,000.00</td></tr>
+      <tr><td>2024-11-10</td><td>Credit Card</td><td>Purchase</td><td>Electronics</td><td class="amount" style="color:red;">- 1,250.00</td></tr>
+      <tr><td>2024-05-30</td><td>Savings</td><td>Transfer</td><td>Emergency Fund</td><td class="amount" style="color:red;">- 1,500.00</td></tr>
+      <tr><td>2023-07-18</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+ 4,500.00</td></tr>
+      <tr><td>2023-04-12</td><td>Credit Card</td><td>Purchase</td><td>Vacation Booking</td><td class="amount" style="color:red;">- 3,200.00</td></tr>
+      <tr><td>2022-10-05</td><td>Savings</td><td>Deposit</td><td>Gift Received</td><td class="amount" style="color:green;">+ 1,000.00</td></tr>
+      <tr><td>2022-03-15</td><td>Checking</td><td>Purchase</td><td>Car Repair</td><td class="amount" style="color:red;">- 780.00</td></tr>
+      <tr><td>2021-12-25</td><td>Checking</td><td>Deposit</td><td>Christmas Gift</td><td class="amount" style="color:green;">+ 2,000.00</td></tr>
+      <tr><td>2021-07-10</td><td>Credit Card</td><td>Purchase</td><td>Dining</td><td class="amount" style="color:red;">- 120.50</td></tr>
+      <tr><td>2021-01-02</td><td>Savings</td><td>Transfer</td><td>New Year Investment</td><td class="amount" style="color:red;">- 5,000.00</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+  <footer>
+    © 2025 Beacon CCU • Phone: (555) 123-4567 • Email: 
+    <a href="mailto:support@beaconcu.com" style="color:var(--accent); text-decoration:none;">support@beaconcu.com</a>
+  </footer>
+
+  <script>
+    document.getElementById("dashboardOwnerName").textContent = "Frederick Morgan";
+  </script>
+</body>
+</html>
