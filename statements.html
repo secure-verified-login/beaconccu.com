@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beacon CCU — Statements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0b3d91;
+      --accent: #d4af37;
+      --bg: #f5f7fa;
+      --text-dark: #1a1a1a;
+      --text-muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
+
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      flex-wrap: wrap;
+    }
+    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
+    header .logo-area img { height: 45px; border-radius: 50%; }
+    header .logo-text { font-weight: 700; font-size: 1.3rem; }
+    nav a { text-decoration: none; color: #fff; font-weight: 600; margin-left: 1.2rem; transition: 0.3s; }
+    nav a:hover { color: var(--accent); }
+
+    main { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+
+    h2 { font-weight: 700; font-size: 1.6rem; margin-bottom: 1.5rem; }
+
+    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.5rem; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.75rem; border-bottom: 1px solid #ddd; text-align: left; }
+    th { background: var(--primary); color: #fff; }
+    td.amount { text-align: right; font-weight: 600; }
+
+    footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-area">
+    <img src="assets/images/beacon-logo.jpg" alt="Beacon CCU Logo">
+    <div class="logo-text">Beacon CCU</div>
+  </div>
+  <nav>
+    <a href="index.html">Accounts</a>
+    <a href="transfer.html">Transfers</a>
+    <a href="bill-pay.html">Bill Pay</a>
+    <a href="statements.html">Statements</a>
+    <a href="settings.html">Settings</a>
+    <a href="index.html">Logout</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Statements — Last 5 Years</h2>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Account</th>
+          <th>Balance</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 2025 -->
+        <tr><td>September 2025</td><td>Checking</td><td>$1,234,567.89</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>September 2025</td><td>Savings</td><td>$2,345,678.90</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>August 2025</td><td>Checking</td><td>$1,200,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>August 2025</td><td>Savings</td><td>$2,300,000.00</td><td><a href="#">PDF</a></td></tr>
+        <!-- 2024 -->
+        <tr><td>December 2024</td><td>Checking</td><td>$1,050,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>June 2024</td><td>Savings</td><td>$2,100,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>March 2024</td><td>Checking</td><td>$980,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>March 2024</td><td>Savings</td><td>$2,050,000.00</td><td><a href="#">PDF</a></td></tr>
+        <!-- 2023 -->
+        <tr><td>December 2023</td><td>Checking</td><td>$900,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>June 2023</td><td>Savings</td><td>$1,950,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>March 2023</td><td>Checking</td><td>$850,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>March 2023</td><td>Savings</td><td>$1,900,000.00</td><td><a href="#">PDF</a></td></tr>
+        <!-- 2022 -->
+        <tr><td>December 2022</td><td>Checking</td><td>$780,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>June 2022</td><td>Savings</td><td>$1,850,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>March 2022</td><td>Checking</td><td>$720,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>March 2022</td><td>Savings</td><td>$1,800,000.00</td><td><a href="#">PDF</a></td></tr>
+        <!-- 2021 -->
+        <tr><td>December 2021</td><td>Checking</td><td>$650,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>June 2021</td><td>Savings</td><td>$1,700,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>March 2021</td><td>Checking</td><td>$600,000.00</td><td><a href="#">PDF</a></td></tr>
+        <tr><td>March 2021</td><td>Savings</td><td>$1,650,000.00</td><td><a href="#">PDF</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer>
+  © 2025 Beacon CCU • Phone: (555) 123-4567 • Email: 
+  <a href="mailto:support@beaconcu.com" style="color:var(--accent); text-decoration:none;">support@beaconcu.com</a>
+</footer>
+</body>
+</html>
