@@ -1,292 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beacon CCU — Member Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beacon CCU | Your Trusted Credit Union</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    :root {
-      --primary: #0b3d91;
-      --accent: #d4af37;
-      --bg: #f5f7fa;
-      --text-dark: #1a1a1a;
-      --text-muted: #6b7280;
-      --radius: 12px;
-      --shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
+    /* ===========================
+       Base Styles
+    =========================== */
     body {
+      margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text-dark);
+      color: #333;
+      background: #f5f7fa;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
     }
 
     header {
-      background: var(--primary);
+      background: #0b3d91;
       color: #fff;
-      padding: 1rem 2rem;
+      padding: 15px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav-container {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      box-shadow: var(--shadow);
       flex-wrap: wrap;
-      position: relative;
-      z-index: 2;
     }
-    header .logo-area {
+
+    .logo-area {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 10px;
     }
-    header .logo-area img {
-      height: 45px;
+
+    .logo {
+      height: 40px;
       border-radius: 50%;
     }
-    header .logo-text {
-      font-weight: 700;
-      font-size: 1.3rem;
+
+    .nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap; /* allows wrapping on smaller screens */
     }
-    nav a {
+
+    .nav a {
       text-decoration: none;
       color: #fff;
       font-weight: 600;
-      margin-left: 1.2rem;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: var(--accent);
+      transition: color 0.3s;
     }
 
-    /* Hero Background */
-    .hero-bg {
+    .nav a:hover, .nav a.active {
+      color: #d4af37;
+    }
+
+    .btn-login {
+      background: #fff;
+      color: #0b3d91 !important;
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+
+    /* 🔹 HERO SECTION */
+    .hero {
       position: relative;
-      background: url('assets/images/dashboard-bg.jpg') center/cover no-repeat;
-      min-height: 100vh;
-      padding-top: 120px;
-      padding-bottom: 60px;
-    }
-    .hero-bg::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: #fff; 
-    
+      background: url('assets/images/banner.jpg') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
     }
 
-    main {
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+      max-width: 90%;
     }
 
-    h2 {
-      font-weight: 700;
-      font-size: 1.6rem;
-      background: linear-gradient(90deg, var(--accent), #fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .btn-primary {
+      background: #d4af37;
+      color: #0b3d91;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #fff;
+      color: #0b3d91;
+    }
+
+    .btn-outline {
+      border: 2px solid #0b3d91;
+      padding: 8px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      color: #0b3d91;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: #0b3d91;
+      color: #fff;
+    }
+
+    .services {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
     }
 
     .card {
       background: #fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      padding: 25px;
+      width: 300px;
+      flex: 1 1 250px;
     }
 
-    /* Balance Cards */
-    .balance-overview {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .balance-card {
-      flex: 1 1 220px;
-      background: #eef3ff;
-      border-radius: var(--radius);
-      padding: 1rem;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-    .balance-card h3 {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.25rem;
-    }
-    .balance-card span {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
+    .rates {
+      background: #eaf2ff;
+      padding: 40px 0;
     }
 
-    /* Buttons */
-    button {
-      background: var(--accent);
-      border: none;
-      border-radius: 30px;
-      color: var(--primary);
-      font-weight: 700;
-      padding: 0.75rem 1.5rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #fff;
-      color: var(--primary);
-      border: 2px solid var(--accent);
+    .table-container {
+      overflow-x: auto;
     }
 
-    .quick-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .quick-actions button {
-      flex: 1 1 150px;
-    }
-
-    /* Transactions */
-    .transactions table {
+    .rate-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    .transactions th, .transactions td {
-      padding: 0.75rem;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
-    }
-    .transactions th {
-      background: var(--primary);
-      color: #fff;
-    }
-    .transactions td.amount {
-      text-align: right;
-      font-weight: 600;
+      min-width: 300px;
     }
 
-    footer {
-      background: var(--primary);
+    .rate-table th, .rate-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+
+    .rate-table th {
+      background: #0b3d91;
+      color: #fff;
+    }
+
+    .cta {
+      background: #0b3d91;
       color: #fff;
       text-align: center;
-      padding: 1.5rem;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      position: relative;
-      z-index: 2;
+      padding: 50px 20px;
     }
 
-    @media(max-width:768px){
-      .balance-overview { flex-direction: column; }
-      .quick-actions { flex-direction: column; }
-      nav { margin-top: 1rem; }
+    .footer {
+      background: #0b3d91;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    /* ===========================
+       Responsive / Mobile Styles
+    =========================== */
+    @media (max-width: 1024px) {
+      .cards {
+        gap: 15px;
+      }
+      .card {
+        width: 45%;
+        padding: 20px;
+      }
+      .hero {
+        height: 60vh;
+      }
+    
+/* Default: show JPG, hide SVG */
+.jpg-logo { display: inline-block; }
+.svg-logo { display: none; }
+
+/* Example: swap logos on mobile */
+@media (max-width: 768px) {
+  .jpg-logo { display: none; }
+  .svg-logo { display: inline-block; }
+}
+
+/* Optional: adjust logo size */
+.logo {
+  height: 50px;
+  border-radius: 50%;
+}
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      /* Cards stack */
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 90%;
+      }
+
+      /* Hero adjustments */
+      .hero {
+        height: 50vh;
+        padding: 0 10px;
+      }
+      .hero-content {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Hero adjustments for very small screens */
+      .hero {
+        height: 40vh;
+      }
+      .hero-content h2 {
+        font-size: 1.5rem;
+      }
+
+      /* Buttons smaller */
+      .btn-primary, .btn-outline {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+
+      /* Table text smaller */
+      .rate-table th, .rate-table td {
+        font-size: 0.8rem;
+        padding: 6px;
+      }
+
+      /* Table stacking for mobile */
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead {
+        display: none;
+      }
+      td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+      }
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 0.5rem;
+        font-weight: 600;
+        color: #6b7280;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
+<header class="header">
+  <div class="container nav-container">
     <div class="logo-area">
-      <img src="assets/images/beacon-logo.jpg" alt="Beacon CCU Logo">
-      <div class="logo-text">Beacon CCU</div>
+      <!-- JPG Logo (shown by default) -->
+      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU Logo" class="logo jpg-logo">
+
+      <!-- SVG Logo (optional, can swap in with CSS) -->
+      <img src="assets/images/logo.svg" alt="" class="logo svg-logo">
+
+      <!-- Site Name -->
+      <h1></h1>
     </div>
-    <nav>
-  <a href="index.html">Accounts</a>
-  <a href="statements.html">Statements</a>
-  <a href="settings.html">Settings</a>
-  <a href="index.html">Logout</a>
-</nav>
 
-  </header>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="loans.html">Loans</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="sign-in.html" class="btn-login">Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <!-- Hero background wrapper -->
-  <div class="hero-bg">
-    <main>
-      <h2>Welcome back, <span id="dashboardOwnerName">Frederick Morgan</span></h2>
 
-      <!-- Account Balances -->
-      <div class="balance-overview">
-        <div class="balance-card">
-          <h3>Checking</h3>
-          $<span>1,234,567.89</span>
-        </div>
-        <div class="balance-card">
-          <h3>Savings</h3>
-          $<span>2,345,678.90</span>
-        </div>
-        <div class="balance-card">
-          <h3>Investments</h3>
-          $<span>3,000,000.00</span>
-        </div>
-        <div class="balance-card">
-          <h3>Credit Card</h3>
-          -$<span>120,000.00</span>
-        </div>
-      </div>
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <h2>Building Your Future with Beacon CCU</h2>
+    <p>Trusted financial solutions, local service, and a commitment to your success.</p>
+    <a href="index.html" class="btn-primary">Join Now</a>
+  </div>
+</section>
 
-      <!-- Quick Actions -->
-      <div class="card quick-actions">
-        <button onclick="window.location.href='transfer.html'">Transfer</button>
-        <button onclick="window.location.href='deposit.html'">Deposit</button>
-        <button onclick="window.location.href='bill-pay.html'">Pay Bill</button>
-      </div>
-
-     <!-- Transactions -->
-<div class="card transactions">
-  <h3>Account & Debit Card History (Last 5 Years)</h3>
-  <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 15px;">
-    <div>
-      <label for="year-filter"><strong>Select Year:</strong></label>
-      <select id="year-filter" style="padding: 0.4rem; border-radius: 6px; border: 1px solid #ccc;"></select>
+<!-- SERVICES -->
+<section class="services container">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Checking Accounts</h3>
+      <p>Convenient, low-fee accounts designed for your everyday life.</p>
+      <a href="accounts.html" class="btn-outline">Learn More</a>
     </div>
-    <div>
-      <label for="filter-date"><strong>Select Date:</strong></label>
-      <input type="date" id="filter-date" style="padding: 0.4rem; border-radius: 6px; border: 1px solid #ccc;" />
+    <div class="card">
+      <h3>Loans & Credit</h3>
+      <p>Affordable auto, home, and personal loans with flexible terms.</p>
+      <a href="loans.html" class="btn-outline">Explore Loans</a>
+    </div>
+    <div class="card">
+      <h3>Financial Education</h3>
+      <p>Resources and tools to help you plan, save, and grow your wealth.</p>
+      <a href="about.html" class="btn-outline">Learn More</a>
     </div>
   </div>
-  <table id="full-transactions-table">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Account</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th class="amount">Amount ($)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Sample transactions spanning 5 years -->
-      <tr><td>2025-09-27</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+ 5,000.00</td></tr>
-      <tr><td>2025-09-26</td><td>Credit Card</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;">- 320.45</td></tr>
-      <tr><td>2025-08-15</td><td>Savings</td><td>Transfer</td><td>Investment Fund</td><td class="amount" style="color:red;">- 2,000.00</td></tr>
-      <tr><td>2024-12-22</td><td>Checking</td><td>Deposit</td><td>Year-End Bonus</td><td class="amount" style="color:green;">+ 10,000.00</td></tr>
-      <tr><td>2024-11-10</td><td>Credit Card</td><td>Purchase</td><td>Electronics</td><td class="amount" style="color:red;">- 1,250.00</td></tr>
-      <tr><td>2024-05-30</td><td>Savings</td><td>Transfer</td><td>Emergency Fund</td><td class="amount" style="color:red;">- 1,500.00</td></tr>
-      <tr><td>2023-07-18</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+ 4,500.00</td></tr>
-      <tr><td>2023-04-12</td><td>Credit Card</td><td>Purchase</td><td>Vacation Booking</td><td class="amount" style="color:red;">- 3,200.00</td></tr>
-      <tr><td>2022-10-05</td><td>Savings</td><td>Deposit</td><td>Gift Received</td><td class="amount" style="color:green;">+ 1,000.00</td></tr>
-      <tr><td>2022-03-15</td><td>Checking</td><td>Purchase</td><td>Car Repair</td><td class="amount" style="color:red;">- 780.00</td></tr>
-      <tr><td>2021-12-25</td><td>Checking</td><td>Deposit</td><td>Christmas Gift</td><td class="amount" style="color:green;">+ 2,000.00</td></tr>
-      <tr><td>2021-07-10</td><td>Credit Card</td><td>Purchase</td><td>Dining</td><td class="amount" style="color:red;">- 120.50</td></tr>
-      <tr><td>2021-01-02</td><td>Savings</td><td>Transfer</td><td>New Year Investment</td><td class="amount" style="color:red;">- 5,000.00</td></tr>
-    </tbody>
-  </table>
-</div>
+</section>
 
+<!-- RATES -->
+<section class="rates">
+  <div class="container table-container">
+    <h2>Current Rates</h2>
+    <table class="rate-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Rate</th>
+          <th>APR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Product">Auto Loan</td>
+          <td data-label="Rate">5.25%</td>
+          <td data-label="APR">5.40%</td>
+        </tr>
+        <tr>
+          <td data-label="Product">Home Mortgage</td>
+          <td data-label="Rate">4.85%</td>
+          <td data-label="APR">4.95%</td>
+        </tr>
+        <tr>
+          <td data-label="Product">Savings Account</td>
+          <td data-label="Rate">1.75%</td>
+          <td data-label="APR">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-  <footer>
-    © 2025 Beacon CCU • Phone: (555) 123-4567 • Email: 
-    <a href="mailto:support@beaconcu.com" style="color:var(--accent); text-decoration:none;">support@beaconcu.com</a>
-  </footer>
+<!-- CTA -->
+<section class="cta">
+  <h2>Join Beacon CCU Today</h2>
+  <p>Experience personalized financial care from a trusted local credit union.</p>
+  <a href="membership.html" class="btn-primary">Become a Member</a>
+</section>
 
-  <script>
-    document.getElementById("dashboardOwnerName").textContent = "Frederick Morgan";
-  </script>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Beacon CCU. All rights reserved.</p>
+    <p>Phone: (555) 123-4567 | Email: <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

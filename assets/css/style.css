@@ -1,3 +1,6 @@
+/* ===========================
+   Base Styles
+=========================== */
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
@@ -50,7 +53,8 @@ header {
   transition: color 0.3s;
 }
 
-.nav a:hover, .nav a.active {
+.nav a:hover,
+.nav a.active {
   color: #d4af37;
 }
 
@@ -140,6 +144,10 @@ header {
   padding: 40px 0;
 }
 
+.table-container {
+  overflow-x: auto;
+}
+
 .rate-table {
   width: 100%;
   border-collapse: collapse;
@@ -168,7 +176,117 @@ header {
   text-align: center;
   padding: 20px;
 }
+
 .footer a {
   color: #d4af37;
   text-decoration: none;
+}
+
+/* ===========================
+   Responsive / Mobile Styles
+=========================== */
+
+/* Tablets and medium screens */
+@media (max-width: 1024px) {
+  .cards {
+    gap: 15px;
+  }
+
+  .card {
+    width: 45%;
+    padding: 20px;
+  }
+
+  .hero {
+    height: 60vh;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .hero {
+    height: 50vh;
+    padding: 0 10px;
+  }
+
+  .hero-content {
+    font-size: 0.9rem;
+  }
+
+/* Default: show JPG, hide SVG */
+.jpg-logo { display: inline-block; }
+.svg-logo { display: none; }
+
+/* Example: swap logos on mobile */
+@media (max-width: 768px) {
+  .jpg-logo { display: none; }
+  .svg-logo { display: inline-block; }
+}
+
+/* Optional: adjust logo size */
+.logo {
+  height: 50px;
+  border-radius: 50%;
+}
+
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn-primary, .btn-outline {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .rate-table th, .rate-table td {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+
+  /* Table stacking */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 0.5rem;
+    font-weight: 600;
+    color: #6b7280;
+  }
 }
