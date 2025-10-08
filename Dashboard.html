@@ -18,6 +18,7 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
 
+    /* Header */
     header {
       background: var(--primary);
       color: #fff;
@@ -42,6 +43,7 @@
 
     .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.5rem; }
 
+    /* Balance Overview */
     .balance-overview { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
     .balance-card {
       flex: 1 1 220px;
@@ -54,6 +56,7 @@
     .balance-card h3 { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.25rem; }
     .balance-card span { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
 
+    /* Overview Cards */
     .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
     .overview-card { background: #fff; padding: 1rem; border-radius: var(--radius); box-shadow: var(--shadow); }
     .overview-card h4 { margin-bottom: 0.5rem; font-size: 1rem; color: var(--text-muted); }
@@ -65,18 +68,23 @@
     td.amount { text-align: right; font-weight: 600; }
 
     footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; position: relative; z-index: 2; }
+
+    /* Transaction highlights */
+    .amount[style*="background-color:#e6fff0"] { font-weight: 600; } /* Groceries */
+    .amount[style*="background-color:#fff8dc"] { font-weight: 600; } /* Daily small expenses */
   </style>
 </head>
 <body>
 <header>
   <div class="logo-area">
-    <img src="assets/images/beacon-logo.jpg" alt="Beacon CCU Logo">
+    <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo">
+    <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo">
     <div class="logo-text">Beacon CCU</div>
   </div>
   <nav>
     <a href="index.html">Accounts</a>
     <a href="transfer.html">Transfers</a>
-    <a href="bill-pay.html">bill Pay</a>
+    <a href="bill-pay.html">Bill Pay</a>
     <a href="Statements.html">Statements</a>
     <a href="settings.html">Settings</a>
     <a href="index.html">Logout</a>
@@ -84,7 +92,7 @@
 </header>
 
 <main>
-  <h2>Account Overview</h2>
+  <h2>Welcome back Frederick</h2>
 
   <!-- Balances -->
   <div class="balance-overview">
@@ -94,7 +102,7 @@
     <div class="balance-card"><h3>Credit Card</h3>-$<span>120,000.00</span></div>
   </div>
 
-  <!-- Spending / Deposits / Withdrawals Overview -->
+  <!-- Overview Cards -->
   <div class="overview-grid">
     <div class="overview-card">
       <h4>Total Spending (Last 30 Days)</h4>
@@ -114,69 +122,47 @@
     </div>
   </div>
 
-  <!-- Recent Transactions -->
+  <!-- Full 5-Year Transactions -->
   <div class="card">
-    <h2>Recent Transactions</h2>
+    <h2>Transaction History — 2021 to 2025</h2>
     <table>
       <thead>
         <tr><th>Date</th><th>Account</th><th>Type</th><th>Description</th><th class="amount">Amount ($)</th></tr>
       </thead>
       <tbody>
+        <!-- 2025 -->
         <tr><td>2025-09-27</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+5,000.00</td></tr>
-        <tr><td>2025-09-26</td><td>Credit Card</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;">-320.45</td></tr>
+        <tr><td>2025-09-26</td><td>Credit Card</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-320.45</td></tr>
         <tr><td>2025-08-15</td><td>Savings</td><td>Transfer</td><td>Investment Fund</td><td class="amount" style="color:red;">-2,000.00</td></tr>
         <tr><td>2025-07-10</td><td>Checking</td><td>Deposit</td><td>Bonus</td><td class="amount" style="color:green;">+3,500.00</td></tr>
-        <tr><td>2025-06-20</td><td>Checking</td><td>Withdrawal</td><td>ATM</td><td class="amount" style="color:red;">-600.00</td></tr>
+        <tr><td>2025-06-20</td><td>Checking</td><td>Purchase</td><td>Daily Coffee</td><td class="amount" style="color:red;background-color:#fff8dc;">-4.75</td></tr>
+
+        <!-- 2024 -->
+        <tr><td>2024-12-05</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-210.30</td></tr>
+        <tr><td>2024-11-18</td><td>Checking</td><td>Withdrawal</td><td>ATM</td><td class="amount" style="color:red;">-500.00</td></tr>
+        <tr><td>2024-10-22</td><td>Savings</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+4,800.00</td></tr>
+        <tr><td>2024-09-14</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-275.60</td></tr>
+        <tr><td>2024-08-03</td><td>Checking</td><td>Purchase</td><td>Daily Snacks</td><td class="amount" style="color:red;background-color:#fff8dc;">-15.50</td></tr>
+
+        <!-- 2023 -->
+        <tr><td>2023-12-19</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+4,500.00</td></tr>
+        <tr><td>2023-11-11</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-295.00</td></tr>
+        <tr><td>2023-10-07</td><td>Checking</td><td>Purchase</td><td>Coffee</td><td class="amount" style="color:red;background-color:#fff8dc;">-4.50</td></tr>
+        <tr><td>2023-09-23</td><td>Savings</td><td>Deposit</td><td>Bonus</td><td class="amount" style="color:green;">+2,000.00</td></tr>
+
+        <!-- 2022 -->
+        <tr><td>2022-12-30</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-300.00</td></tr>
+        <tr><td>2022-11-15</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+4,200.00</td></tr>
+        <tr><td>2022-10-05</td><td>Checking</td><td>Purchase</td><td>Lunch</td><td class="amount" style="color:red;background-color:#fff8dc;">-12.75</td></tr>
+
+        <!-- 2021 -->
+        <tr><td>2021-12-28</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+3,900.00</td></tr>
+        <tr><td>2021-11-19</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-285.25</td></tr>
+        <tr><td>2021-10-10</td><td>Checking</td><td>Purchase</td><td>Daily Coffee</td><td class="amount" style="color:red;background-color:#fff8dc;">-4.25</td></tr>
+        <tr><td>2021-09-02</td><td>Savings</td><td>Deposit</td><td>Bonus</td><td class="amount" style="color:green;">+1,500.00</td></tr>
       </tbody>
     </table>
   </div>
-  <!-- Recent Transactions -->
-<div class="card">
-  <h2>Recent Transactions — Last 5 Years</h2>
-  <table>
-    <thead>
-      <tr><th>Date</th><th>Account</th><th>Type</th><th>Description</th><th class="amount">Amount ($)</th></tr>
-    </thead>
-    <tbody>
-      <!-- 2025 -->
-      <tr><td>2025-09-27</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+5,000.00</td></tr>
-      <tr><td>2025-09-26</td><td>Credit Card</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-320.45</td></tr>
-      <tr><td>2025-08-15</td><td>Savings</td><td>Transfer</td><td>Investment Fund</td><td class="amount" style="color:red;">-2,000.00</td></tr>
-      <tr><td>2025-07-10</td><td>Checking</td><td>Deposit</td><td>Bonus</td><td class="amount" style="color:green;">+3,500.00</td></tr>
-      <tr><td>2025-06-20</td><td>Checking</td><td>Purchase</td><td>Daily Coffee</td><td class="amount" style="color:red;background-color:#fff8dc;">-4.75</td></tr>
-
-      <!-- 2024 -->
-      <tr><td>2024-12-05</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-210.30</td></tr>
-      <tr><td>2024-11-18</td><td>Checking</td><td>Withdrawal</td><td>ATM</td><td class="amount" style="color:red;">-500.00</td></tr>
-      <tr><td>2024-10-22</td><td>Savings</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+4,800.00</td></tr>
-      <tr><td>2024-09-14</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-275.60</td></tr>
-      <tr><td>2024-08-03</td><td>Checking</td><td>Purchase</td><td>Daily Snacks</td><td class="amount" style="color:red;background-color:#fff8dc;">-15.50</td></tr>
-
-      <!-- 2023 -->
-      <tr><td>2023-12-19</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+4,500.00</td></tr>
-      <tr><td>2023-11-11</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-295.00</td></tr>
-      <tr><td>2023-10-07</td><td>Checking</td><td>Purchase</td><td>Coffee</td><td class="amount" style="color:red;background-color:#fff8dc;">-4.50</td></tr>
-      <tr><td>2023-09-23</td><td>Savings</td><td>Deposit</td><td>Bonus</td><td class="amount" style="color:green;">+2,000.00</td></tr>
-
-      <!-- 2022 -->
-      <tr><td>2022-12-30</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-300.00</td></tr>
-      <tr><td>2022-11-15</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+4,200.00</td></tr>
-      <tr><td>2022-10-05</td><td>Checking</td><td>Purchase</td><td>Lunch</td><td class="amount" style="color:red;background-color:#fff8dc;">-12.75</td></tr>
-
-      <!-- 2021 -->
-      <tr><td>2021-12-28</td><td>Checking</td><td>Deposit</td><td>Payroll</td><td class="amount" style="color:green;">+3,900.00</td></tr>
-      <tr><td>2021-11-19</td><td>Checking</td><td>Purchase</td><td>Groceries</td><td class="amount" style="color:red;background-color:#e6fff0;">-285.25</td></tr>
-      <tr><td>2021-10-10</td><td>Checking</td><td>Purchase</td><td>Daily Coffee</td><td class="amount" style="color:red;background-color:#fff8dc;">-4.25</td></tr>
-      <tr><td>2021-09-02</td><td>Savings</td><td>Deposit</td><td>Bonus</td><td class="amount" style="color:green;">+1,500.00</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<style>
-  /* Transaction highlights */
-  .amount[style*="background-color:#e6fff0"] { font-weight: 600; } /* Groceries */
-  .amount[style*="background-color:#fff8dc"] { font-weight: 600; } /* Daily small expenses */
-</style>
 
 </main>
 

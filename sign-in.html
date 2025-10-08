@@ -4,24 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beacon CCU | Sign In</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* 🔹 TOP BAR STYLES */
+    :root {
+      --primary: #0b3d91;
+      --accent: #d4af37;
+      --bg: #f5f7fa;
+      --text-dark: #1a1a1a;
+      --text-muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
+
+    /* Top bar */
     .top-bar {
-      background-color: #0b3d91; 
+      background-color: var(--primary); 
       color: #fff;
       padding: 8px 20px;
       font-size: 0.9em;
     }
-    .top-bar .row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .top-bar .row { display: flex; justify-content: space-between; align-items: center; }
     .atm-btn {
       background-color: #fff;
-      color: #d4af37;
+      color: var(--accent);
       padding: 4px 14px;
       border-radius: 20px;
       font-weight: 600;
@@ -29,79 +37,35 @@
       font-size: 0.85em;
       transition: all 0.3s ease;
     }
-    .atm-btn:hover {
-      background-color: #f9f9f9;
-      color: #b8860b;
-    }
+    .atm-btn:hover { background-color: #f9f9f9; color: #b8860b; }
 
-    /* 🔹 HEADER STYLES */
-    .header {
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-    }
-    .nav-container {
+    /* Header */
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
+      box-shadow: var(--shadow);
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .logo-area img.logo {
-      height: 45px;
-      width: auto;
-    }
-    .nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-    .nav a {
+    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
+    header .logo-area img { height: 45px; border-radius: 50%; }
+    header .logo-text { font-weight: 700; font-size: 1.3rem; color: #fff; }
+    nav ul { display: flex; list-style: none; gap: 1rem; align-items: center; }
+    nav ul li a {
       text-decoration: none;
-      color: #0b3d91;
+      color: #fff;
       font-weight: 600;
+      padding: 6px 12px;
       transition: 0.3s;
     }
-    .nav a:hover {
-      color: #d4af37;
-    }
-    .btn-login {
-      background: #d4af37;
-      color: #fff !important;
-      padding: 8px 18px;
-      border-radius: 20px;
-    }
-    .btn-login:hover {
-      background: #b8860b;
-    }
+    nav ul li a:hover, nav ul li a.active { color: var(--accent); }
 
-    /* 🔹 MOBILE NAVIGATION */
-    @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .nav ul {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-      }
-      .logo-area {
-        justify-content: center;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-
-    /* 🔹 HERO STYLES */
+    /* Hero login section */
     .hero-login {
       background: url('assets/images/banner.jpg') center/cover no-repeat;
       position: relative;
@@ -118,23 +82,18 @@
       width: 100%; height: 100%;
       background: rgba(0, 0, 50, 0.4);
     }
-
-    /* 🔹 LOGIN CONTAINER */
     .login-container {
       position: relative;
       z-index: 2;
       background: #fff;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       width: 100%;
       max-width: 450px;
       text-align: center;
     }
-    .login-container h2 {
-      margin-bottom: 20px;
-      color: #0b3d91;
-    }
+    .login-container h2 { margin-bottom: 20px; color: var(--primary); }
     .login-container input {
       width: 100%;
       padding: 10px;
@@ -143,17 +102,11 @@
       border-radius: 8px;
       font-size: 1em;
     }
-    .login-container a {
-      color: #0b3d91;
-      text-decoration: none;
-      font-size: 0.9em;
-    }
-    .login-container a:hover {
-      text-decoration: underline;
-    }
+    .login-container a { color: var(--primary); text-decoration: none; font-size: 0.9em; }
+    .login-container a:hover { text-decoration: underline; }
     .btn-primary {
-      background: #d4af37;
-      color: #0b3d91;
+      background: var(--accent);
+      color: var(--primary);
       padding: 12px 28px;
       border-radius: 30px;
       font-weight: 600;
@@ -164,14 +117,25 @@
     }
     .btn-primary:hover {
       background: #fff;
-      color: #0b3d91;
-      border: 2px solid #d4af37;
+      color: var(--primary);
+      border: 2px solid var(--accent);
+    }
+
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔹 TOP BAR -->
+  <!-- Top Bar -->
   <div class="top-bar">
     <div class="row">
       <div>Routing Number <strong>231176648</strong> | NMLS# 469346</div>
@@ -179,27 +143,26 @@
     </div>
   </div>
 
-  <!-- 🔹 HEADER -->
-  <header class="header">
-    <div class="container nav-container">
-      <div class="logo-area">
-        <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
-        <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
-      </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="sign-in.html">Accounts</a></li>
-          <li><a href="sign-in.html">Loans</a></li>
-          <li><a href="sign-in.html">Contact</a></li>
-          <li><a href="index.html" class="btn-login active">Login</a></li>
-        </ul>
-      </nav>
+  <!-- Header -->
+  <header>
+    <div class="logo-area">
+      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo">
+      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo">
+      <div class="logo-text">Beacon CCU</div>
     </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="sign-in.html" class="active">Accounts</a></li>
+        <li><a href="sign-in.html">Loans</a></li>
+        <li><a href="sign-in.html">Contact</a></li>
+        <li><a href="index.html">Login</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- 🔹 HERO WITH LOGIN FORM -->
+  <!-- Hero login section -->
   <section class="hero-login">
     <div class="login-container">
       <h2>Sign In to Your Account</h2>
@@ -217,25 +180,23 @@
     </div>
   </section>
 
-  <!-- 🔹 FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Beacon CCU. All rights reserved.</p>
-      <p>Phone: (555) 123-4567 | Email: <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
-    </div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Beacon CCU. All rights reserved.</p>
+    <p>Phone: (555) 123-4567 | Email: <a href="mailto:support@beaconcu.com" style="color: var(--accent);">support@beaconcu.com</a></p>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Login validation and redirect
+    // Login validation
     const loginForm = document.getElementById("loginForm");
     loginForm.addEventListener("submit", function(e) {
       e.preventDefault();
       const email = loginForm.email.value.trim();
       const password = loginForm.password.value.trim();
       if(email === "Fredmorgan8711@gmail.com" && password === "FREDMORGAN8711") {
-        window.location.href = "Dashborad.html";
+        window.location.href = "Dashboard.html";
       } else {
         alert("Invalid email or password. Please try again.");
       }
