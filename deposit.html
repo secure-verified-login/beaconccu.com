@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Beacon CCU — Deposit</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -15,33 +15,100 @@
       --radius: 12px;
       --shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
     header {
       background: var(--primary);
       color: #fff;
-      padding: 1rem 2rem;
+      padding: 1rem 1.2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: var(--shadow);
       flex-wrap: wrap;
     }
-    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
-    header .logo-area img { height: 45px; border-radius: 50%; }
-    header .logo-text { font-weight: 700; font-size: 1.3rem; }
-    nav a { text-decoration: none; color: #fff; font-weight: 600; margin-left: 1.2rem; transition: 0.3s; }
-    nav a:hover { color: var(--accent); }
 
-    main { max-width: 600px; margin: 0 auto; padding: 2rem 1rem; }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-    h2 { font-weight: 700; font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; }
+    .logo {
+      height: 40px;
+      border-radius: 50%;
+    }
 
-    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-top: 0.5rem;
+    }
 
-    label { display: block; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; }
-    input, select { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      margin: 0.4rem 0.6rem;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* MAIN */
+    main {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h2 {
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
 
     button {
       background: var(--accent);
@@ -56,23 +123,66 @@
       transition: 0.3s;
       font-size: 1rem;
     }
+
     button:hover {
       background: #fff;
       color: var(--primary);
       border: 2px solid var(--accent);
     }
 
-    footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; }
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.8rem;
+      }
+      .logo-area {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+      nav a {
+        margin: 0.4rem;
+        font-size: 0.9rem;
+      }
+      main {
+        padding: 1.5rem 1rem;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
   </style>
 </head>
 <body>
+
 <header class="header">
-  <div class="container nav-container">
-    <div class="logo-area">
-      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
-      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
-    </div>
-    </div>
+  <div class="logo-area">
+    <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
+    <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
+  </div>
   <nav>
     <a href="index.html">Accounts</a>
     <a href="transfer.html">Transfers</a>
@@ -113,7 +223,7 @@
 
 <footer>
   © 2025 Beacon CCU • Phone: (555) 123-4567 • Email: 
-  <a href="mailto:support@beaconcu.com" style="color:var(--accent); text-decoration:none;">support@beaconcu.com</a>
+  <a href="mailto:support@beaconcu.com">support@beaconcu.com</a>
 </footer>
 
 <script>
@@ -132,5 +242,6 @@
     }
   });
 </script>
+
 </body>
 </html>

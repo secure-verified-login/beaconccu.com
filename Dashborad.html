@@ -28,6 +28,7 @@
       color: #fff;
       padding: 15px 0;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: relative;
     }
 
     .nav-container {
@@ -35,17 +36,33 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      position: relative;
     }
 
+    /* 🔹 Move logos fully to far left */
     .logo-area {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .logo {
-      height: 40px;
+      height: 45px;
       border-radius: 50%;
+      object-fit: contain;
+    }
+
+    .jpg-logo, .svg-logo {
+      display: inline-block;
+    }
+
+    nav.nav {
+      margin-left: auto; /* push nav to the right */
+      padding-left: 200px; /* creates space so logos don’t overlap */
     }
 
     .nav ul {
@@ -54,7 +71,7 @@
       padding: 0;
       display: flex;
       gap: 20px;
-      flex-wrap: wrap; /* allows wrapping on smaller screens */
+      flex-wrap: wrap;
     }
 
     .nav a {
@@ -212,22 +229,10 @@
       .hero {
         height: 60vh;
       }
-    
-/* Default: show JPG, hide SVG */
-.jpg-logo { display: inline-block; }
-.svg-logo { display: none; }
 
-/* Example: swap logos on mobile */
-@media (max-width: 768px) {
-  .jpg-logo { display: none; }
-  .svg-logo { display: inline-block; }
-}
-
-/* Optional: adjust logo size */
-.logo {
-  height: 50px;
-  border-radius: 50%;
-}
+      nav.nav {
+        padding-left: 120px;
+      }
 
       nav ul {
         flex-direction: column;
@@ -235,7 +240,6 @@
         align-items: flex-start;
       }
 
-      /* Cards stack */
       .cards {
         flex-direction: column;
         align-items: center;
@@ -244,7 +248,6 @@
         width: 90%;
       }
 
-      /* Hero adjustments */
       .hero {
         height: 50vh;
         padding: 0 10px;
@@ -255,7 +258,6 @@
     }
 
     @media (max-width: 480px) {
-      /* Hero adjustments for very small screens */
       .hero {
         height: 40vh;
       }
@@ -263,19 +265,16 @@
         font-size: 1.5rem;
       }
 
-      /* Buttons smaller */
       .btn-primary, .btn-outline {
         padding: 8px 16px;
         font-size: 0.85rem;
       }
 
-      /* Table text smaller */
       .rate-table th, .rate-table td {
         font-size: 0.8rem;
         padding: 6px;
       }
 
-      /* Table stacking for mobile */
       table, thead, tbody, th, td, tr {
         display: block;
       }
@@ -304,14 +303,8 @@
 <header class="header">
   <div class="container nav-container">
     <div class="logo-area">
-      <!-- JPG Logo (shown by default) -->
-      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU Logo" class="logo jpg-logo">
-
-      <!-- SVG Logo (optional, can swap in with CSS) -->
-      <img src="assets/images/logo.svg" alt="" class="logo svg-logo">
-
-      <!-- Site Name -->
-      <h1></h1>
+      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo jpg-logo">
+      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo svg-logo">
     </div>
 
     <nav class="nav">
@@ -325,7 +318,6 @@
     </nav>
   </div>
 </header>
-
 
 <!-- HERO SECTION -->
 <section class="hero">

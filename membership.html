@@ -5,222 +5,296 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Become a Member | Beacon CCU</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
   <style>
+    :root {
+      --primary: #0b3d91;
+      --accent: #d4af37;
+      --bg: #f5f7fa;
+      --text-dark: #1a1a1a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
       font-family: 'Open Sans', sans-serif;
-      color: #333;
-      background: #f5f7fa;
+      color: var(--text-dark);
+      background: var(--bg);
+      line-height: 1.6;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-    }
-
+    /* ✅ HEADER */
     header {
-      background: #0b3d91;
+      background: var(--primary);
       color: #fff;
-      padding: 15px 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .nav-container {
+      padding: 1rem 2rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
     }
 
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0.6rem;
     }
 
-    .logo {
-      height: 40px;
+    .logo-area img {
+      height: 45px;
       border-radius: 50%;
     }
 
-    .nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 20px;
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.3rem;
     }
 
-    .nav a {
+    nav a {
       text-decoration: none;
       color: #fff;
       font-weight: 600;
-      transition: color 0.3s;
+      margin-left: 1.2rem;
+      transition: 0.3s;
     }
 
-    .nav a:hover, .nav a.active {
-      color: #d4af37;
+    nav a:hover {
+      color: var(--accent);
     }
 
-    .btn-login {
-      background: #fff;
-      color: #0b3d91 !important;
-      padding: 8px 16px;
-      border-radius: 20px;
-    }
-
-    /* 🔹 HERO SECTION */
     .hero {
-      position: relative;
-      background: url('assets/images/Wise-Web.jpg') center/cover no-repeat;
-      height: 60vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-    }
+  background: url('assets/images/Wise-Web.jpg') center center / cover no-repeat;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  min-height: 70vh; /* 🧱 makes it tall enough for a big hero */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem; /* slight padding for smaller screens */
+}
+
 
     .hero::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.25); /* soft overlay for readability */
+      background: rgba(0, 0, 0, 0.35);
       z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
       max-width: 700px;
-      padding: 0 20px;
+      margin: 0 auto;
     }
 
-    .hero-content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    .hero-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1rem;
     }
 
-    .btn-primary {
-      background: #d4af37;
-      color: #0b3d91;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    .btn-primary:hover {
+    .hero-logos img {
+      height: 60px;
+      border-radius: 50%;
       background: #fff;
-      color: #0b3d91;
+      padding: 5px;
     }
 
-    /* FORM STYLING */
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+
+    /* ✅ MEMBERSHIP INFO */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 1rem;
+      text-align: center;
+    }
+
+    .container h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      flex: 1 1 300px;
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ✅ FORM SECTION */
     .form-section {
+      padding: 3rem 1rem;
       background: #eaf2ff;
-      padding: 50px 0;
     }
 
-    form.membership-form {
+    .form-section h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-section p {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    form {
       max-width: 600px;
-      margin: 30px auto;
+      margin: 0 auto;
       background: #fff;
-      padding: 30px;
+      padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
+    form label {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 0.5rem;
       font-weight: 600;
-      color: #0b3d91;
+      color: var(--primary);
     }
 
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    form input, form select, form textarea {
       width: 100%;
       padding: 10px;
-      border-radius: 8px;
       border: 1px solid #ccc;
-      font-size: 1rem;
-      font-family: 'Open Sans', sans-serif;
+      border-radius: 8px;
+      margin-bottom: 1rem;
     }
 
-    .form-group textarea {
-      resize: vertical;
+    form button {
+      background: var(--accent);
+      border: none;
+      border-radius: 30px;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      transition: 0.3s;
     }
 
+    form button:hover {
+      background: #fff;
+      border: 2px solid var(--accent);
+    }
+
+    /* ✅ CTA + FOOTER */
     .cta {
-      background: #0b3d91;
+      background: var(--primary);
       color: #fff;
       text-align: center;
-      padding: 50px 20px;
+      padding: 2.5rem 1rem;
     }
 
     .cta a {
-      color: #d4af37;
+      color: var(--accent);
       text-decoration: none;
     }
 
-    .footer {
-      background: #0b3d91;
+    footer {
+      background: var(--primary);
       color: #fff;
       text-align: center;
-      padding: 20px;
+      padding: 1.5rem;
+      font-size: 0.9rem;
     }
 
-    .footer a {
-      color: #d4af37;
+    footer a {
+      color: var(--accent);
       text-decoration: none;
+    }
+
+    /* ✅ RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero-logos img {
+        height: 45px;
+      }
+
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="container nav-container">
-    <div class="logo-area">
-      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
-      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
-    </div>
-    
-    <nav class="nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="accounts.html">Accounts</a></li>
-        <li><a href="loans.html">Loans</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="sign-in.html" class="btn-login">Sign in</a></li>
-      </ul>
-    </nav>
+<!-- ✅ HEADER -->
+<header>
+  <div class="logo-area">
+    <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo">
+    <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo">
+    <div class="logo-text"></div>
   </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="accounts.html">Accounts</a>
+    <a href="loans.html">Loans</a>
+    <a href="contact.html">Contact</a>
+    <a href="sign-in.html">Sign In</a>
+  </nav>
 </header>
 
-<!-- HERO -->
+<!-- ✅ HERO -->
 <section class="hero">
   <div class="hero-content">
+    <div class="hero-logos">
+    </div>
     <h2>Become a Beacon CCU Member</h2>
     <p>Join our family and enjoy trusted financial care with a personal touch.</p>
   </div>
 </section>
 
-<!-- MEMBERSHIP INFO -->
-<section class="container" style="padding: 50px 0;">
+<!-- ✅ MEMBERSHIP INFO -->
+<section class="container">
   <h2>Why Join Beacon CCU?</h2>
   <p>As a member-owned financial cooperative, Beacon CCU puts people before profits. By joining, you gain access to competitive rates, local decision-making, and a community committed to your financial well-being.</p>
   
-  <div class="cards" style="margin-top:30px;">
+  <div class="cards">
     <div class="card">
       <h3>Low Fees</h3>
       <p>Enjoy low or no fees on checking and savings accounts.</p>
@@ -236,55 +310,46 @@
   </div>
 </section>
 
-<!-- MEMBERSHIP FORM -->
+<!-- ✅ FORM -->
 <section class="form-section">
-  <div class="container">
-    <h2>Membership Application</h2>
-    <p>Please complete the form below to begin your membership process. Our team will contact you within 24 hours.</p>
+  <h2>Membership Application</h2>
+  <p>Please complete the form below to begin your membership process.</p>
 
-    <form action="#" method="post" class="membership-form">
-      <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" name="name" required>
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" name="phone" required>
-      </div>
-      <div class="form-group">
-        <label>Preferred Branch</label>
-        <select name="branch">
-          <option value="">Select a branch</option>
-          <option value="tampa">Tampa</option>
-          <option value="stpete">St. Petersburg</option>
-          <option value="clearwater">Clearwater</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Message / Additional Info</label>
-        <textarea name="message" rows="4"></textarea>
-      </div>
-      <button type="submit" class="btn-primary">Submit Application</button>
-    </form>
-  </div>
+  <form action="#" method="post">
+    <label>Full Name</label>
+    <input type="text" name="name" required>
+
+    <label>Email Address</label>
+    <input type="email" name="email" required>
+
+    <label>Phone Number</label>
+    <input type="tel" name="phone" required>
+
+    <label>Preferred Branch</label>
+    <select name="branch" required>
+      <option value="">Select a branch</option>
+      <option value="tampa">Tampa</option>
+      <option value="stpete">St. Petersburg</option>
+      <option value="clearwater">Clearwater</option>
+    </select>
+
+    <label>Message / Additional Info</label>
+    <textarea name="message" rows="4"></textarea>
+
+    <button type="submit">Submit Application</button>
+  </form>
 </section>
 
-<!-- CTA -->
+<!-- ✅ CTA -->
 <section class="cta">
   <h2>Need Assistance?</h2>
-  <p>Contact our membership specialists at <strong>(555) 123-4567</strong> or <a href="mailto:support@beaconcu.com">support@beaconcu.com</a>.</p>
+  <p>Contact our membership specialists at <strong>(555) 123-4567</strong> or <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <p>&copy; <span id="year"></span> Beacon CCU. All rights reserved.</p>
-    <p>Phone: (555) 123-4567 | Email: <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
-  </div>
+<!-- ✅ FOOTER -->
+<footer>
+  © <span id="year"></span> Beacon CCU • Phone: (555) 123-4567 • 
+  <a href="mailto:support@beaconcu.com">support@beaconcu.com</a>
 </footer>
 
 <script>

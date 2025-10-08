@@ -11,54 +11,168 @@
       --accent: #d4af37;
       --bg: #f5f7fa;
       --text-dark: #1a1a1a;
-      --text-muted: #6b7280;
       --radius: 12px;
       --shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
+
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
 
+    /* HEADER */
     header {
       background: var(--primary);
       color: #fff;
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: var(--shadow);
       flex-wrap: wrap;
+      box-shadow: var(--shadow);
     }
-    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
-    header .logo-area img { height: 45px; border-radius: 50%; }
-    header .logo-text { font-weight: 700; font-size: 1.3rem; }
-    nav a { text-decoration: none; color: #fff; font-weight: 600; margin-left: 1.2rem; transition: 0.3s; }
+
+    .logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+    /* Use same SVG styling as account.html */
+   .logo {
+  height: 40px;
+  border-radius: 50%;
+}
+    
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
     nav a:hover { color: var(--accent); }
 
-    main { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+    /* MAIN */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
 
-    h2 { font-weight: 700; font-size: 1.6rem; margin-bottom: 1.5rem; }
+    h2 {
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
 
-    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-    form label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-    form input, form select { width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: var(--radius); margin-bottom: 1rem; }
-    form button { background: var(--accent); border: none; border-radius: 30px; color: var(--primary); font-weight: 700; padding: 0.75rem 1.5rem; cursor: pointer; transition: 0.3s; }
-    form button:hover { background: #fff; color: var(--primary); border: 2px solid var(--accent); }
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
 
-    footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; }
+    form input,
+    form select {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ddd;
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: var(--accent);
+      border: none;
+      border-radius: 30px;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid var(--accent);
+    }
+
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      line-height: 1.5;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(255,255,255,0.2);
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      form button {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
- <header class="header">
-  <div class="container nav-container">
-    <div class="logo-area">
-      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
-      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
-    </div>
-    </div>
+
+<header class="header">
+  <div class="logo-area">
+    <!-- JPG logo -->
+    <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
+    <!-- SVG logo (same as account page) -->
+    <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
+    <span class="logo-text"></span>
+  </div>
   <nav>
     <a href="index.html">Accounts</a>
-    <a href="transfer.html">Transfers</a>
+    <a href="transfer.html" class="active">Transfers</a>
     <a href="bill-pay.html">Bill Pay</a>
     <a href="statements.html">Statements</a>
     <a href="settings.html">Settings</a>
@@ -68,7 +182,6 @@
 
 <main>
   <h2>Transfer Funds</h2>
-
   <div class="card">
     <form>
       <label for="from-account">From Account</label>
@@ -96,8 +209,9 @@
 </main>
 
 <footer>
-  © 2025 Beacon CCU • Phone: (555) 123-4567 • Email: 
-  <a href="mailto:support@beaconcu.com" style="color:var(--accent); text-decoration:none;">support@beaconcu.com</a>
+  © 2025 Beacon CCU • Phone: (555) 123-4567 • Email:
+  <a href="mailto:support@beaconcu.com">support@beaconcu.com</a>
 </footer>
+
 </body>
 </html>

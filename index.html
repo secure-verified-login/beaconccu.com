@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beacon CCU | Your Trusted Credit Union</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
   <style>
+    /* ========== BASE STYLES ========== */
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
@@ -20,6 +20,7 @@
       margin: auto;
     }
 
+    /* ========== HEADER ========== */
     header {
       background: #0b3d91;
       color: #fff;
@@ -31,6 +32,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
 
     .logo-area {
@@ -50,6 +52,7 @@
       padding: 0;
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .nav a {
@@ -59,7 +62,8 @@
       transition: color 0.3s;
     }
 
-    .nav a:hover, .nav a.active {
+    .nav a:hover,
+    .nav a.active {
       color: #d4af37;
     }
 
@@ -70,11 +74,16 @@
       border-radius: 20px;
     }
 
-    /* 🔹 HERO SECTION */
+    /* Show both logos side by side */
+    .jpg-logo, .svg-logo {
+      display: inline-block;
+    }
+
+    /* ========== HERO SECTION ========== */
     .hero {
       position: relative;
       background: url('assets/images/banner.jpg') center/cover no-repeat;
-      height: 80vh;
+      height: 70vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -87,14 +96,14 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.1); /* subtle overlay for text readability */
+      background: rgba(0, 0, 0, 0.3);
       z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      text-shadow: 1px 1px 8px rgba(0,0,0,0.5); /* makes text readable on bright images */
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
     }
 
     .btn-primary {
@@ -127,6 +136,7 @@
       color: #fff;
     }
 
+    /* ========== CONTENT SECTIONS ========== */
     .services {
       padding: 50px 0;
       text-align: center;
@@ -185,6 +195,54 @@
       color: #d4af37;
       text-decoration: none;
     }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 0 15px;
+      }
+
+      .nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .hero {
+        height: 50vh;
+        padding: 0 10px;
+      }
+
+      .hero-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .card {
+        width: 90%;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead { display: none; }
+      td {
+        padding-left: 50%;
+        position: relative;
+        text-align: left;
+      }
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: 600;
+        color: #555;
+      }
+    }
   </style>
 </head>
 <body>
@@ -192,18 +250,9 @@
 <header class="header">
   <div class="container nav-container">
     <div class="logo-area">
-      <!-- JPG Logo (shown by default) -->
       <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU Logo" class="logo jpg-logo">
-
-      <!-- SVG Logo (optional, can swap in with CSS) -->
-      <img src="assets/images/logo.svg" alt="" class="logo svg-logo">
-
-      <!-- Site Name -->
-      <h1></h1>
+      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo svg-logo">
     </div>
-
-    <nav class="nav">
-      <ul>
 
     <nav class="nav">
       <ul>
@@ -217,7 +266,6 @@
   </div>
 </header>
 
-<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-content">
     <h2>Building Your Future with Beacon CCU</h2>
@@ -226,14 +274,13 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services container">
   <h2>Our Services</h2>
   <div class="cards">
     <div class="card">
       <h3>Checking Accounts</h3>
       <p>Convenient, low-fee accounts designed for your everyday life.</p>
-      <a href="accounts.html" class="btn-outline">Learn More</a>
+      <a href="account.html" class="btn-outline">Learn More</a>
     </div>
     <div class="card">
       <h3>Loans & Credit</h3>
@@ -248,7 +295,6 @@
   </div>
 </section>
 
-<!-- RATES -->
 <section class="rates">
   <div class="container">
     <h2>Current Rates</h2>
@@ -262,37 +308,37 @@
       </thead>
       <tbody>
         <tr>
-          <td>Auto Loan</td>
-          <td>5.25%</td>
-          <td>5.40%</td>
+          <td data-label="Product">Auto Loan</td>
+          <td data-label="Rate">5.25%</td>
+          <td data-label="APR">5.40%</td>
         </tr>
         <tr>
-          <td>Home Mortgage</td>
-          <td>4.85%</td>
-          <td>4.95%</td>
+          <td data-label="Product">Home Mortgage</td>
+          <td data-label="Rate">4.85%</td>
+          <td data-label="APR">4.95%</td>
         </tr>
         <tr>
-          <td>Savings Account</td>
-          <td>1.75%</td>
-          <td>—</td>
+          <td data-label="Product">Savings Account</td>
+          <td data-label="Rate">1.75%</td>
+          <td data-label="APR">—</td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
   <h2>Join Beacon CCU Today</h2>
   <p>Experience personalized financial care from a trusted local credit union.</p>
   <a href="membership.html" class="btn-primary">Become a Member</a>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <p>&copy; <span id="year"></span> Beacon CCU. All rights reserved.</p>
-    <p>Phone: (555) 123-4567 | Email: <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
+    <p>Phone: (555) 123-4567 | Email: 
+      <a href="mailto:support@beaconcu.com">support@beaconcu.com</a>
+    </p>
   </div>
 </footer>
 

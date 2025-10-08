@@ -34,6 +34,73 @@
       color: #b8860b;
     }
 
+    /* 🔹 HEADER STYLES */
+    .header {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      flex-wrap: wrap;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .logo-area img.logo {
+      height: 45px;
+      width: auto;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #0b3d91;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .nav a:hover {
+      color: #d4af37;
+    }
+    .btn-login {
+      background: #d4af37;
+      color: #fff !important;
+      padding: 8px 18px;
+      border-radius: 20px;
+    }
+    .btn-login:hover {
+      background: #b8860b;
+    }
+
+    /* 🔹 MOBILE NAVIGATION */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .logo-area {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
     /* 🔹 HERO STYLES */
     .hero-login {
       background: url('assets/images/banner.jpg') center/cover no-repeat;
@@ -114,12 +181,12 @@
 
   <!-- 🔹 HEADER -->
   <header class="header">
-  <div class="container nav-container">
-    <div class="logo-area">
-      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
-      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
-    </div>
-    <nav class="nav">
+    <div class="container nav-container">
+      <div class="logo-area">
+        <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
+        <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
+      </div>
+      <nav class="nav">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -139,13 +206,10 @@
       <form id="loginForm">
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="password" name="password" placeholder="Password" required>
-
         <div style="text-align: right; margin-bottom: 20px;">
           <a href="#">Forgot Password?</a>
         </div>
-
-        <button type="submit" class="btn-primary">sign-In</button>
-
+        <button type="submit" class="btn-primary">Sign In</button>
         <p style="margin-top: 20px;">
           Not a member? <a href="signup.html">Join Now</a>
         </p>
@@ -167,13 +231,11 @@
     // Login validation and redirect
     const loginForm = document.getElementById("loginForm");
     loginForm.addEventListener("submit", function(e) {
-      e.preventDefault(); // prevent actual form submission
-
+      e.preventDefault();
       const email = loginForm.email.value.trim();
       const password = loginForm.password.value.trim();
-
       if(email === "Fredmorgan8711@gmail.com" && password === "FREDMORGAN8711") {
-        window.location.href = "Dashborad.html"; // redirect to dashboard
+        window.location.href = "Dashborad.html";
       } else {
         alert("Invalid email or password. Please try again.");
       }

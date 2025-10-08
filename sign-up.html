@@ -30,6 +30,80 @@
       font-weight: 600;
     }
 
+    /* 🔹 Header Styling */
+    .header {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 10px 20px;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* 🔹 Logo Area */
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-area img {
+      height: 50px;
+      width: auto;
+    }
+
+    /* 🔹 Navigation */
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .nav ul li a {
+      text-decoration: none;
+      color: #0b3d91;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .nav ul li a:hover {
+      color: #092b6d;
+    }
+
+    .btn-login {
+      background: #0b3d91;
+      color: #fff !important;
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+
+    /* 🔹 Responsive Header */
+    @media (max-width: 768px) {
+      .nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+
+    /* 🔹 Responsive Logo Area */
+    @media (max-width: 600px) {
+      .logo-area {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      .logo-area img {
+        height: 40px;
+      }
+    }
+
+    /* 🔹 Signup Hero */
     .hero-signup {
       position: relative;
       background: url('assets/images/banner.jpg') center/cover no-repeat;

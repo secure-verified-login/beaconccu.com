@@ -11,13 +11,13 @@
       --accent: #d4af37;
       --bg: #f5f7fa;
       --text-dark: #1a1a1a;
-      --text-muted: #6b7280;
       --radius: 12px;
       --shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
 
+    /* ✅ Header */
     header {
       background: var(--primary);
       color: #fff;
@@ -25,30 +25,123 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: var(--shadow);
       flex-wrap: wrap;
+      box-shadow: var(--shadow);
     }
-    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
-    header .logo-area img { height: 45px; border-radius: 50%; }
-    header .logo-text { font-weight: 700; font-size: 1.3rem; }
-    nav a { text-decoration: none; color: #fff; font-weight: 600; margin-left: 1.2rem; transition: 0.3s; }
-    nav a:hover { color: var(--accent); }
+    header .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    header .logo-area img {
+      height: 45px;
+      border-radius: 50%;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      margin-left: 1.2rem;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
 
-    main { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+    /* ✅ Responsive Header */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+      }
+      nav a {
+        margin-left: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 0.5rem;
+      }
+    }
 
-    h1, h2 { font-weight: 700; margin-bottom: 1rem; }
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.6rem; color: var(--primary); }
+    /* ✅ Main Content */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
 
-    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem; margin-bottom: 2rem; }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    label {
+      font-weight: 600;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+      width: fit-content;
+    }
+    button:hover {
+      background: #fff;
+      border: 2px solid var(--accent);
+      color: var(--primary);
+    }
 
-    form { display: flex; flex-direction: column; gap: 1rem; }
-    label { font-weight: 600; margin-bottom: 0.25rem; }
-    input, textarea { padding: 0.5rem; border-radius: var(--radius); border: 1px solid #ccc; width: 100%; }
-    button { background: var(--accent); color: var(--primary); font-weight: 700; border: none; border-radius: 30px; padding: 0.75rem 1.5rem; cursor: pointer; transition: 0.3s; }
-    button:hover { background: #fff; color: var(--primary); border: 2px solid var(--accent); }
-
-    footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; }
+    /* ✅ Footer */
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -59,13 +152,13 @@
       <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
       <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
     </div>
-    </div>
+  </div>
   <nav>
     <a href="index.html">Accounts</a>
-    <a href="sign-in.html">Transfers</a>
-    <a href="sign-in.html">Bill Pay</a>
-    <a href="sign-in.html">Statements</a>
-    <a href="sign-in.html">Settings</a>
+    <a href="transfer.html">Transfers</a>
+    <a href="bill-pay.html">Bill Pay</a>
+    <a href="statements.html">Statements</a>
+    <a href="settings.html">Settings</a>
     <a href="index.html">Logout</a>
   </nav>
 </header>
@@ -93,25 +186,21 @@
   </div>
 
   <div class="card">
-    <h2>Our Contact Info</h2>
-    <p><strong>Phone:</strong> (555) 123-4567</p>
-    <p><strong>Email:</strong> <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
-    <p><strong>Address:</strong> 123 Beacon Street, Tampa, FL 33602</p>
+    <h2></h2>
+    <p><strong></strong></p>
+    <p><strong></strong> <a href=""></a></p>
+    <p><strong></strong></p>
   </div>
 </main>
 
-<!-- FOOTER -->
 <footer class="footer">
-  <div class="container">
-    <p>&copy; <span id="year"></span> Beacon CCU. All rights reserved.</p>
-    <p>Phone: (555) 123-4567 | Email: <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
-  </div>
+  <p>&copy; <span id="year"></span> Beacon CCU. All rights reserved.</p>
+  <p>Phone: (555) 123-4567 | Email: <a href="mailto:support@beaconcu.com">support@beaconcu.com</a></p>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
 
 </body>
 </html>

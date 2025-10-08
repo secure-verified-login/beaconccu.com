@@ -18,6 +18,7 @@
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
 
+    /* ========== HEADER ========== */
     header {
       background: var(--primary);
       color: #fff;
@@ -28,44 +29,174 @@
       box-shadow: var(--shadow);
       flex-wrap: wrap;
     }
-    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
-    header .logo-area img { height: 45px; border-radius: 50%; }
-    header .logo-text { font-weight: 700; font-size: 1.3rem; }
-    nav a { text-decoration: none; color: #fff; font-weight: 600; margin-left: 1.2rem; transition: 0.3s; }
-    nav a:hover { color: var(--accent); }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .logo-area img {
+      height: 45px;
+      border-radius: 50%;
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
 
-    main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+    /* ========== MAIN ========== */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
 
     h1, h2, h3 { font-weight: 700; margin-bottom: 1rem; }
     h1 { font-size: 2rem; }
-    h2 { font-size: 1.6rem; color: var(--primary); }
+    h2 { font-size: 1.5rem; color: var(--primary); }
 
-    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem; margin-bottom: 2rem; }
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
 
-    table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
-    th, td { padding: 0.75rem; border: 1px solid #ddd; text-align: left; }
-    th { background: var(--primary); color: #fff; }
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: var(--primary);
+      color: #fff;
+    }
 
-    form { display: flex; flex-direction: column; gap: 1rem; }
-    label { font-weight: 600; margin-bottom: 0.25rem; }
-    input, select, textarea { padding: 0.5rem; border-radius: var(--radius); border: 1px solid #ccc; width: 100%; }
-    button { background: var(--accent); color: var(--primary); font-weight: 700; border: none; border-radius: 30px; padding: 0.75rem 1.5rem; cursor: pointer; transition: 0.3s; }
-    button:hover { background: #fff; color: var(--primary); border: 2px solid var(--accent); }
+    /* Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    input, select, textarea {
+      padding: 0.6rem;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+    button {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+      width: fit-content;
+    }
+    button:hover {
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid var(--accent);
+    }
 
-    .terms { font-size: 0.9rem; color: var(--text-muted); background: #f0f2f5; padding: 1rem; border-radius: var(--radius); max-height: 300px; overflow-y: auto; margin-top: 1rem; }
+    .terms {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: #f0f2f5;
+      padding: 1rem;
+      border-radius: var(--radius);
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 1rem;
+    }
 
-    footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; }
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      main {
+        padding: 1rem;
+      }
+
+      /* Responsive table */
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead { display: none; }
+      tr { margin-bottom: 1rem; border-bottom: 2px solid #eee; }
+      td {
+        padding-left: 50%;
+        position: relative;
+        text-align: left;
+      }
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 0.5rem;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+    }
   </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="container nav-container">
-    <div class="logo-area">
-      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
-      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
-    </div>
-    </div>
+<header>
+  <div class="logo-area">
+    <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
+    <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
+    <span class="logo-text"></span>
+  </div>
   <nav>
     <a href="index.html">Accounts</a>
     <a href="transfer.html">Transfers</a>
@@ -92,10 +223,34 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>Personal Loan</td><td>6.5%</td><td>12–60</td><td>$1,000</td><td>$50,000</td></tr>
-        <tr><td>Home Loan</td><td>4.2%</td><td>120–360</td><td>$50,000</td><td>$1,000,000</td></tr>
-        <tr><td>Auto Loan</td><td>5.0%</td><td>24–84</td><td>$5,000</td><td>$100,000</td></tr>
-        <tr><td>Student Loan</td><td>4.8%</td><td>36–120</td><td>$1,000</td><td>$200,000</td></tr>
+        <tr>
+          <td data-label="Loan Type">Personal Loan</td>
+          <td data-label="Interest Rate (APR)">6.5%</td>
+          <td data-label="Term (Months)">12–60</td>
+          <td data-label="Minimum Amount">$1,000</td>
+          <td data-label="Maximum Amount">$50,000</td>
+        </tr>
+        <tr>
+          <td data-label="Loan Type">Home Loan</td>
+          <td data-label="Interest Rate (APR)">4.2%</td>
+          <td data-label="Term (Months)">120–360</td>
+          <td data-label="Minimum Amount">$50,000</td>
+          <td data-label="Maximum Amount">$1,000,000</td>
+        </tr>
+        <tr>
+          <td data-label="Loan Type">Auto Loan</td>
+          <td data-label="Interest Rate (APR)">5.0%</td>
+          <td data-label="Term (Months)">24–84</td>
+          <td data-label="Minimum Amount">$5,000</td>
+          <td data-label="Maximum Amount">$100,000</td>
+        </tr>
+        <tr>
+          <td data-label="Loan Type">Student Loan</td>
+          <td data-label="Interest Rate (APR)">4.8%</td>
+          <td data-label="Term (Months)">36–120</td>
+          <td data-label="Minimum Amount">$1,000</td>
+          <td data-label="Maximum Amount">$200,000</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -142,7 +297,7 @@
 </main>
 
 <footer>
-  © 2025 Beacon CCU • Phone: (555) 123-4567 • Email: 
+  © 2025 Beacon CCU • Phone: (555) 123-4567 • Email:
   <a href="mailto:support@beaconcu.com">support@beaconcu.com</a>
 </footer>
 

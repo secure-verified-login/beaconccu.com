@@ -5,19 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Beacon CCU — Account Settings</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary: #0b3d91;
       --accent: #d4af37;
       --bg: #f5f7fa;
       --text-dark: #1a1a1a;
-      --text-muted: #6b7280;
       --radius: 12px;
       --shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ====== Header ====== */
     header {
       background: var(--primary);
       color: #fff;
@@ -25,163 +32,262 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: var(--shadow);
       flex-wrap: wrap;
+      box-shadow: var(--shadow);
     }
-    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
-    header .logo-area img { height: 45px; border-radius: 50%; }
-    header .logo-text { font-weight: 700; font-size: 1.3rem; }
-    nav a { text-decoration: none; color: #fff; font-weight: 600; margin-left: 1.2rem; transition: 0.3s; }
-    nav a:hover { color: var(--accent); }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .logo-area img {
+      height: 45px;
+      border-radius: 50%;
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
 
-    main { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; display: flex; flex-direction: column; gap: 2rem; }
+    /* ====== Main ====== */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    h2 {
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-align: center;
+    }
+    h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    form input,
+    form select {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ddd;
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+    }
+    form button {
+      background: var(--accent);
+      border: none;
+      border-radius: 30px;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    form button:hover {
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid var(--accent);
+    }
+    .section-divider {
+      height: 2px;
+      background: #ddd;
+      margin: 1.5rem 0;
+      border-radius: 1px;
+    }
 
-    h2 { font-weight: 700; font-size: 1.6rem; margin-bottom: 1rem; }
+    /* ====== Footer ====== */
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.5rem; }
-
-    form label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-    form input, form select { width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: var(--radius); margin-bottom: 1rem; }
-    form button { background: var(--accent); border: none; border-radius: 30px; color: var(--primary); font-weight: 700; padding: 0.75rem 1.5rem; cursor: pointer; transition: 0.3s; }
-    form button:hover { background: #fff; color: var(--primary); border: 2px solid var(--accent); }
-
-    h3 { margin-bottom: 1rem; color: var(--primary); font-weight: 700; }
-
-    .section { margin-bottom: 2rem; }
-    .section-divider { height: 2px; background: #ddd; margin: 1.5rem 0; border-radius: 1px; }
-
-    footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; }
+    /* ====== Responsive ====== */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      main {
+        padding: 1rem;
+      }
+      .card {
+        padding: 1rem;
+      }
+      form button {
+        width: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="header">
-  <div class="container nav-container">
+  <!-- ===== Header ===== -->
+  <header>
     <div class="logo-area">
-      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
-      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
+      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo">
+      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo">
+      <div class="logo-text"></div>
     </div>
+
+    <nav>
+      <a href="index.html">Accounts</a>
+      <a href="transfer.html">Transfer</a>
+      <a href="bill-pay.html">Bill Pay</a>
+      <a href="statements.html">Statements</a>
+      <a href="settings.html" class="active">Settings</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main>
+    <h2>Account Settings</h2>
+
+    <div class="card">
+      <h3>Personal Information</h3>
+      <form>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" value="Frederick Morgan" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" value="Fredmorgan8711@gmail.com" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" value="(555) 123-4567" required>
+
+        <label for="address">Mailing Address</label>
+        <input type="text" id="address" value="123 Main Street, Tampa, FL" required>
+
+        <button type="submit">Update Personal Info</button>
+      </form>
     </div>
 
-  <nav>
-    <a href="index.html">Accounts</a>
-    <a href="transfer.html">Transfer</a>
-    <a href="bill-pay.html">Bill Pay</a>
-    <a href="statements.html">Statements</a>
-    <a href="settings.html">Settings</a>
-    <a href="index.html">Logout</a>
-  </nav>
-</header>
+    <div class="section-divider"></div>
 
-<main>
-  <h2>Account Settings</h2>
+    <div class="card">
+      <h3>Change Password</h3>
+      <form>
+        <label for="oldpassword">Current Password</label>
+        <input type="password" id="oldpassword" placeholder="Enter current password" required>
 
-  <!-- Personal Information -->
-  <div class="card section">
-    <h3>Personal Information</h3>
-    <form>
-      <label for="fullname">Full Name</label>
-      <input type="text" id="fullname" value="Frederick Morgan" required>
+        <label for="newpassword">New Password</label>
+        <input type="password" id="newpassword" placeholder="Enter new password" required>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" value="Fredmorgan8711@gmail.com" required>
+        <label for="confirmpassword">Confirm New Password</label>
+        <input type="password" id="confirmpassword" placeholder="Confirm new password" required>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" value="(555) 123-4567" required>
+        <button type="submit">Update Password</button>
+      </form>
+    </div>
 
-      <label for="address">Mailing Address</label>
-      <input type="text" id="address" value="123 Main Street, Tampa, FL" required>
+    <div class="section-divider"></div>
 
-      <button type="submit">Update Personal Info</button>
-    </form>
-  </div>
+    <div class="card">
+      <h3>Security Settings</h3>
+      <form>
+        <label for="2fa">Two-Factor Authentication</label>
+        <select id="2fa">
+          <option value="enabled">Enabled</option>
+          <option value="disabled">Disabled</option>
+        </select>
 
-  <div class="section-divider"></div>
+        <label for="securityquestion">Security Question</label>
+        <select id="securityquestion">
+          <option value="pet">What is your pet's name?</option>
+          <option value="school">What was your first school?</option>
+          <option value="city">What city were you born in?</option>
+        </select>
 
-  <!-- Change Password -->
-  <div class="card section">
-    <h3>Change Password</h3>
-    <form>
-      <label for="oldpassword">Current Password</label>
-      <input type="password" id="oldpassword" placeholder="Enter current password" required>
+        <label for="securityanswer">Answer</label>
+        <input type="text" id="securityanswer" placeholder="Enter answer" required>
 
-      <label for="newpassword">New Password</label>
-      <input type="password" id="newpassword" placeholder="Enter new password" required>
+        <button type="submit">Update Security</button>
+      </form>
+    </div>
 
-      <label for="confirmpassword">Confirm New Password</label>
-      <input type="password" id="confirmpassword" placeholder="Confirm new password" required>
+    <div class="section-divider"></div>
 
-      <button type="submit">Update Password</button>
-    </form>
-  </div>
+    <div class="card">
+      <h3>Notification Preferences</h3>
+      <form>
+        <label for="notifications">Alerts</label>
+        <select id="notifications">
+          <option value="all">All Alerts (Email + SMS)</option>
+          <option value="email">Email Only</option>
+          <option value="sms">SMS Only</option>
+          <option value="none">None</option>
+        </select>
 
-  <div class="section-divider"></div>
+        <label for="statements">Statement Delivery</label>
+        <select id="statements">
+          <option value="paperless">Paperless (Email)</option>
+          <option value="mail">Mail</option>
+        </select>
 
-  <!-- Security Settings -->
-  <div class="card section">
-    <h3>Security Settings</h3>
-    <form>
-      <label for="2fa">Two-Factor Authentication</label>
-      <select id="2fa">
-        <option value="enabled">Enabled</option>
-        <option value="disabled">Disabled</option>
-      </select>
+        <button type="submit">Update Preferences</button>
+      </form>
+    </div>
 
-      <label for="securityquestion">Security Question</label>
-      <select id="securityquestion">
-        <option value="pet">What is your pet's name?</option>
-        <option value="school">What was your first school?</option>
-        <option value="city">What city were you born in?</option>
-      </select>
+    <div class="section-divider"></div>
 
-      <label for="securityanswer">Answer</label>
-      <input type="text" id="securityanswer" placeholder="Enter answer" required>
+    <div class="card">
+      <h3>Linked Accounts</h3>
+      <form>
+        <label for="linkedbank">External Bank Account</label>
+        <input type="text" id="linkedbank" placeholder="Bank Name / Account Number">
+        <button type="submit">Add Linked Account</button>
+      </form>
+    </div>
+  </main>
 
-      <button type="submit">Update Security</button>
-    </form>
-  </div>
-
-  <div class="section-divider"></div>
-
-  <!-- Notification Preferences -->
-  <div class="card section">
-    <h3>Notification Preferences</h3>
-    <form>
-      <label for="notifications">Alerts</label>
-      <select id="notifications">
-        <option value="all">All Alerts (Email + SMS)</option>
-        <option value="email">Email Only</option>
-        <option value="sms">SMS Only</option>
-        <option value="none">None</option>
-      </select>
-
-      <label for="statements">Statement Delivery</label>
-      <select id="statements">
-        <option value="paperless">Paperless (Email)</option>
-        <option value="mail">Mail</option>
-      </select>
-
-      <button type="submit">Update Preferences</button>
-    </form>
-  </div>
-
-  <div class="section-divider"></div>
-
-  <!-- Linked Accounts -->
-  <div class="card section">
-    <h3>Linked Accounts</h3>
-    <form>
-      <label for="linkedbank">External Bank Account</label>
-      <input type="text" id="linkedbank" placeholder="Bank Name / Account Number">
-
-      <button type="submit">Add Linked Account</button>
-    </form>
-  </div>
-
-</main>
-
-<footer>
-  © 2025 Beacon CCU • Phone: (555) 123-4567 • Email: 
-  <a href="mailto:support@beaconcu.com" style="color:var(--accent); text-decoration:none;">support@beaconcu.com</a>
-</footer>
+  <!-- ===== Footer ===== -->
+  <footer>
+    © 2025 Beacon CCU • Phone: (555) 123-4567 • Email:
+    <a href="mailto:support@beaconcu.com">support@beaconcu.com</a>
+  </footer>
 </body>
 </html>

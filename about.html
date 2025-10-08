@@ -15,93 +15,146 @@
       --radius: 12px;
       --shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
+
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text-dark); }
 
+    /* HEADER */
     header {
       background: var(--primary);
       color: #fff;
-      padding: 1rem 2rem;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: var(--shadow);
       flex-wrap: wrap;
+      box-shadow: var(--shadow);
       position: relative;
       z-index: 2;
     }
-    header .logo-area { display: flex; align-items: center; gap: 0.6rem; }
-    header .logo-area img { height: 45px; border-radius: 50%; }
-    header .logo-text { font-weight: 700; font-size: 1.3rem; }
-    nav a { text-decoration: none; color: #fff; font-weight: 600; margin-left: 1.2rem; transition: 0.3s; }
-    nav a:hover { color: var(--accent); }
+    .logo-area { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+    .logo-area img { height: 45px; border-radius: 50%; }
+    .logo-text { font-weight: 700; font-size: 1.3rem; }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.15);
+      color: var(--accent);
+    }
+
+    /* MAIN CONTENT */
     main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
-
     h1, h2 { font-weight: 700; margin-bottom: 1rem; }
-    h1 { font-size: 2rem; }
+    h1 { font-size: 2rem; text-align: center; margin-bottom: 2rem; }
     h2 { font-size: 1.6rem; color: var(--primary); }
 
-    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem; margin-bottom: 2rem; }
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
 
-    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
-    .team-member { text-align: center; }
-    .team-member img { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 0.5rem; }
+    p { line-height: 1.6; color: var(--text-dark); }
+
+    /* TEAM GRID */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+    .team-member {
+      text-align: center;
+      background: #f9faff;
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .team-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+      object-fit: cover;
+    }
     .team-member h4 { margin-bottom: 0.25rem; font-size: 1rem; color: var(--text-dark); }
     .team-member p { font-size: 0.9rem; color: var(--text-muted); }
 
-    footer { background: var(--primary); color: #fff; text-align: center; padding: 1.5rem; font-size: 0.9rem; margin-top: 2rem; position: relative; z-index: 2; }
-
-    a { color: var(--accent); text-decoration: none; }
+    /* PARTNERS */
     .partners-carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  padding: 1rem 0;
-  scroll-behavior: smooth;
-}
-.partners-carousel::-webkit-scrollbar {
-  height: 8px;
-}
-.partners-carousel::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 4px;
-}
-.partner-slide {
-  flex: 0 0 220px;
-  background: #eef3ff;
-  border-radius: var(--radius);
-  padding: 1rem;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-.partner-slide img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-}
-.partner-slide h4 {
-  margin-bottom: 0.25rem;
-  font-size: 1rem;
-  color: var(--text-dark);
-}
-.partner-slide p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem 0;
+      scroll-behavior: smooth;
+    }
+    .partners-carousel::-webkit-scrollbar { height: 6px; }
+    .partners-carousel::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    .partner-slide {
+      flex: 0 0 220px;
+      background: #eef3ff;
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .partner-slide img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+    .partner-slide h4 { margin-bottom: 0.25rem; font-size: 1rem; }
+    .partner-slide p { font-size: 0.9rem; color: var(--text-muted); }
 
+    /* FOOTER */
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* MOBILE OPTIMIZATION */
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav { justify-content: center; width: 100%; }
+      .logo-area { justify-content: center; width: 100%; margin-bottom: 0.5rem; }
+      .logo-area img { height: 40px; }
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1.3rem; }
+      .card { padding: 1.2rem; }
+    }
   </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="container nav-container">
-    <div class="logo-area">
-      <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo" class="logo">
-      <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo" class="logo">
-    </div>
-    </div>
+<header>
+  <div class="logo-area">
+    <img src="assets/images/beacon-logo-1.jpg" alt="Beacon CCU JPG Logo">
+    <img src="assets/images/logo.svg" alt="Beacon CCU SVG Logo">
+  </div>
   <nav>
     <a href="index.html">Accounts</a>
     <a href="sign-in.html">Transfers</a>
@@ -114,7 +167,7 @@
 
 <main>
   <h1>About Beacon Credit Union</h1>
-  
+
   <div class="card">
     <h2>Our Mission</h2>
     <p>Beacon Credit Union is committed to providing personalized financial services with integrity, transparency, and trust. Our goal is to empower members with the tools and guidance needed to achieve financial success and security.</p>
@@ -143,7 +196,6 @@
         <h4>Michael Lee</h4>
         <p>COO</p>
       </div>
-      </div>
     </div>
   </div>
 
@@ -151,32 +203,32 @@
     <h2>Community Involvement</h2>
     <p>At Beacon CCU, we believe in giving back. From sponsoring local events to offering financial literacy workshops, our team actively contributes to building stronger communities and supporting members beyond banking.</p>
   </div>
+
   <div class="card">
-  <h2>Our Partners</h2>
-  <div class="partners-carousel">
-    <div class="partner-slide">
-      <img src="assets/images/partner1.jpg" alt="Global Bank Corp Logo">
-      <h4>Global Bank Corp</h4>
-      <p>Strategic Banking Partner</p>
-    </div>
-    <div class="partner-slide">
-      <img src="assets/images/partner2.jpg" alt="FinTech Solutions Logo">
-      <h4>FinTech Solutions</h4>
-      <p>Digital Innovation Partner</p>
-    </div>
-    <div class="partner-slide">
-      <img src="assets/images/partner3.jpg" alt="Community Trust Logo">
-      <h4>Community Trust</h4>
-      <p>Local Development Partner</p>
-    </div>
-    <div class="partner-slide">
-      <img src="assets/images/partner4.jpg" alt="Secure Payments Logo">
-      <h4>Secure Payments</h4>
-      <p>Payment Processing Partner</p>
+    <h2>Our Partners</h2>
+    <div class="partners-carousel">
+      <div class="partner-slide">
+        <img src="assets/images/partner1.jpg" alt="Global Bank Corp Logo">
+        <h4>Global Bank Corp</h4>
+        <p>Strategic Banking Partner</p>
+      </div>
+      <div class="partner-slide">
+        <img src="assets/images/partner2.jpg" alt="FinTech Solutions Logo">
+        <h4>FinTech Solutions</h4>
+        <p>Digital Innovation Partner</p>
+      </div>
+      <div class="partner-slide">
+        <img src="assets/images/partner3.jpg" alt="Community Trust Logo">
+        <h4>Community Trust</h4>
+        <p>Local Development Partner</p>
+      </div>
+      <div class="partner-slide">
+        <img src="assets/images/partner4.jpg" alt="Secure Payments Logo">
+        <h4>Secure Payments</h4>
+        <p>Payment Processing Partner</p>
+      </div>
     </div>
   </div>
-</div>
-
 </main>
 
 <footer>
